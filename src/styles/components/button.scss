@@ -1,0 +1,61 @@
+@import "../helpers/variables";
+@import "../base/typography";
+
+.common-btn {
+  border-radius: 60px;
+  height: 44px;
+  padding: 0 26px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+
+  &-ghost {
+    background-color: $color-textSecondary4;
+  }
+
+  &-primary {
+    background-color: $color-primary;
+  }
+
+  &-secondary {
+    border: 2px solid $color-primary;
+    color: $color-primary;
+  }
+
+  &-outline-gray {
+    border: solid 1px rgba(0, 0, 0, 0.2);
+    color: $color-textSecondary4;
+  }
+  &-disabled {
+    color: $color-disabled;
+    background-color: $color-disabled;
+  }
+
+  span {
+    @include f16Medium;
+  }
+
+  @media (min-width: 1024px) {
+    height: 64px;
+
+    span {
+      @include f18Regular;
+      line-height: 15px;
+    }
+  }
+
+  &.full-width {
+    width: 100%;
+    padding: 0;
+  }
+  &.loading-btn {
+    cursor: not-allowed;
+  }
+
+  @media (min-width: 768px) {
+    &-outline-gray {
+      border: solid 1px rgba(0, 0, 0, 0.5);
+    }
+  }
+}

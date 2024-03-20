@@ -1,0 +1,66 @@
+.date-time-dropdown {
+  &.select-wrap-box {
+    display: flex;
+    gap: 5px;
+
+    .dropdown-wrap {
+      border-radius: 4px;
+      width: 92.7px;
+      .dropdown-container {
+        min-width: auto;
+        margin-top: 0;
+        .dropdown-header {
+          height: 24px;
+          border-radius: 4px;
+
+          .text {
+            font-family: 'Noto Sans KR';
+            font-size: 12px;
+            margin-left: 15px;
+            margin-top: 1px !important;
+          }
+        }
+
+        .arrow-img {
+          right: 16px;
+        }
+      }
+    }
+
+    .month-dropdown {
+      width: 81px;
+    }
+
+    @media screen and (min-width: 768px) {
+      .dropdown-wrap {
+        width: 140px;
+        border-radius: 10px;
+        background-color: #fff;
+
+        .dropdown-container {
+          min-width: auto;
+
+          .dropdown-header {
+            height: 42px;
+            border-radius: 10px;
+
+            .text {
+              font-family: 'Noto Sans KR';
+              font-size: 18px;
+              color: rgba(0, 0, 0, 0.6);
+              margin-left: 23px;
+              margin-top: -2px !important;
+            }
+          }
+
+          .arrow-img {
+            width: 15px;
+            height: 16px;
+            right: 22px
+          }
+        }
+      }
+    }
+  }
+
+}

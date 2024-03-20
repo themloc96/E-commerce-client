@@ -1,0 +1,97 @@
+@import '../../helpers/variables';
+@import '../../base/typography';
+
+$grid-breakpoints: (
+  xs: 0,
+  sm-400: 400px,
+  sm: 601px,
+  md: 769px,
+  lg: 900px,
+  xl: 1200px,
+  xxl: 1440px,
+);
+
+@function breakpoint-min($name, $breakpoints: $grid-breakpoints) {
+  $min: map-get($breakpoints, $name);
+  @return if($min !=0, $min, null);
+}
+
+@function breakpoint-max($name, $breakpoints: $grid-breakpoints) {
+  $max: map-get($breakpoints, $name);
+  @return if($max and $max > 0, $max - 0.02, null);
+}
+
+@mixin media-breakpoint-down($name, $breakpoints: $grid-breakpoints) {
+  $max: breakpoint-max($name, $breakpoints);
+
+  @if $max {
+    @media (max-width: $max) {
+      @content;
+    }
+  } @else {
+    @content;
+  }
+}
+
+@mixin media-breakpoint-between(
+  $lower,
+  $upper,
+  $breakpoints: $grid-breakpoints
+) {
+  $min: breakpoint-min($lower, $breakpoints);
+  $max: breakpoint-max($upper, $breakpoints);
+
+  @if $min !=null and $max !=null {
+    @media (min-width: $min) and (max-width: $max) {
+      @content;
+    }
+  } @else if $max ==null {
+    @include media-breakpoint-up($lower, $breakpoints) {
+      @content;
+    }
+  } @else if $min ==null {
+    @include media-breakpoint-down($upper, $breakpoints) {
+      @content;
+    }
+  }
+}
+
+.distributor {
+  padding-top: 108px;
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+  &-title {
+    margin: 0 0 53px;
+    p:first-child {
+      text-align: center;
+      font-size: 40px;
+      font-weight: 500;
+      color: #333;
+      margin-bottom: 9px;
+    }
+    p:last-child {
+      text-align: center;
+      font-size: 24px;
+    }
+  }
+}
+
+@media screen and (max-width: 766px) {
+  .distributor {
+    padding-top: 51px;
+    padding-left: 12px !important;
+    padding-right: 12px !important;
+    &-title {
+      margin: 0 0 37px;
+      p:first-child {
+        font-size: 30px;
+        margin-bottom: 7px;
+        letter-spacing: -0.6px;
+      }
+      p:last-child {
+        font-size: 16px;
+        font-weight: 500;
+      }
+    }
+  }
+}

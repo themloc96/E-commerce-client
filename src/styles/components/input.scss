@@ -1,0 +1,80 @@
+@import '../helpers/variables';
+@import '../base/typography';
+
+.common-input {
+  padding: 14px 17px;
+  border-style: solid;
+  border-width: 1px;
+  background-color: $color-bg1;
+  border-radius: 4px;
+  width: 100%;
+  outline: none;
+  margin-top: 7px;
+  padding-left: 11px;
+  line-height: 1.14;
+  font-family: 'Noto Sans KR', sans-serif;
+  @include f14Regular;
+
+  &-label {
+    @include f16Medium;
+  }
+
+  &-sublabel {
+    margin-top: 10px;
+  }
+
+  @media (min-width: 1024px) {
+    margin-top: 8px;
+    padding: 15.5px 16px;
+    line-height: normal;
+    @include f18Medium;
+
+    &-label {
+      @include f18Medium;
+    }
+
+    &-sublabel,
+    &-label {
+      margin-left: 0px;
+    }
+
+    &-sublabel {
+      font-size: 16px;
+      margin-top: 8px;
+    }
+  }
+
+  &:disabled {
+    color: rgba(0, 0, 0, 0.5);
+  }
+
+  // &[type='password']:not(:placeholder-shown) {
+  //   font: small-caption;
+  //   font-size: 64px;
+  //   letter-spacing: 10px;
+
+  //   @media screen and (max-width: 766px) {
+  //     font-size: 32px;
+  //     letter-spacing: 5px;
+  //   }
+  // }
+
+  // ===== Hide arrows from input number ====
+  /* Chrome, Safari, Edge, Opera */
+  &::-webkit-outer-spin-button,
+  &::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+
+  /* Firefox */
+  &[type='number'] {
+    -moz-appearance: textfield;
+  }
+}
+
+.wrap-input-error {
+  @media screen and (min-width: 766px) {
+    width: 100%;
+  }
+}

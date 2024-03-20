@@ -1,0 +1,55 @@
+.modal-find-password {
+  padding: 0;
+  height: 220px;
+  width: 312px;
+  .modal-content {
+    &.find-id-005 {
+      padding-top: 8px;
+      .user-id {
+        width: 135px;
+        margin: 7.5px auto 31px auto;
+        font-size: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+    }
+  }
+
+  @media (min-width: 768px) {
+    width: 518px;
+    height: 325px;
+    .modal-content {
+      &.find-id-005 {
+        padding: 19px 0 0 3px;
+        .user-id {
+          width: 140px;
+          margin-top: 17px;
+          margin-bottom: 21.5px;
+        }
+        .character-group {
+          width: 59.28px;
+          height: 30px;
+          position: relative;
+          p {
+            width: 7px;
+            position: absolute;
+            left: 3px;
+            top: -2px;
+            &:last-of-type {
+              right: -1px;
+              left: unset;
+            }
+          }
+          div {
+            width: 37.38px;
+            position: absolute;
+            left: 60%;
+            transform: translateX(-60%);
+            top: 5px;
+          }
+        }
+      }
+    }
+  }
+}

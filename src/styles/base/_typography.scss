@@ -1,0 +1,92 @@
+@mixin f12Regular {
+    font-size: 12px;
+    font-weight: normal;
+}
+
+@mixin f12Medium {
+    font-size: 12px;
+    font-weight: 500;
+}
+
+@mixin f14Regular {
+    font-size: 14px;
+    font-weight: normal;
+}
+
+@mixin f14Medium {
+    font-size: 14px;
+    font-weight: 500;
+}
+
+@mixin f16Medium {
+    font-weight: 500;
+    font-size: 16px;
+}
+
+@mixin f16Regular {
+    font-size: 16px;
+}
+
+@mixin f18Regular {
+    font-size: 18px;
+    font-weight: normal;
+}
+
+@mixin f18Medium {
+    font-size: 18px;
+    font-weight: 500;
+}
+
+@mixin f20Regular {
+    font-size: 20px;
+    font-weight: normal;
+}
+@mixin f20Medium {
+    font-size: 20px;
+    font-weight: 500;
+}
+
+@mixin f22Medium {
+    font-size: 22px;
+    font-weight: 500;
+}
+
+@mixin f24Medium {
+    font-size: 24px;
+    font-weight: 500;
+}
+
+@mixin f24Bold {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+@mixin f30Medium {
+    font-size: 30px;
+    font-weight: 500;
+}
+
+@mixin f30Bold {
+    font-size: 30px;
+    font-weight: bold;
+}
+
+@mixin f32Medium {
+    font-size: 32px;
+    font-weight: 500;
+}
+
+@mixin f32Bold {
+    font-size: 32px;
+    font-weight: bold;
+}
+
+@mixin f40Medium {
+    font-size: 40px;
+    font-weight: 500;
+}
+
+@mixin f56Medium {
+    font-size: 56px;
+    font-weight: 500;
+}

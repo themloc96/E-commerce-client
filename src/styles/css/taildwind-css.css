@@ -1,0 +1,83 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .f12Regular {
+    font-size: 12px;
+    font-weight: normal;
+  }
+
+  .f14Regular {
+    font-size: 14px;
+    font-weight: normal;
+  }
+  .f14Medium {
+    font-size: 14px;
+    font-weight: 500;
+  }
+
+  .f16Medium {
+    font-weight: 500;
+    font-size: 16px;
+  }
+
+  .f16Regular {
+    font-size: 16px;
+  }
+
+  .f18Regular {
+    font-size: 18px;
+    font-weight: normal;
+  }
+  .f18Medium {
+    font-size: 18px;
+    font-weight: 500;
+  }
+
+  .f20Medium {
+    font-size: 20px;
+    font-weight: 500;
+  }
+  .f22Medium {
+    font-size: 22px;
+    font-weight: 500;
+  }
+
+  .f24Medium {
+    font-size: 24px;
+    font-weight: 500;
+  }
+  .f24Bold {
+    font-size: 24px;
+    font-weight: bold;
+  }
+  .f30Medium {
+    font-size: 30px;
+    font-weight: 500;
+  }
+  .f30Bold {
+    font-size: 30px;
+    font-weight: bold;
+  }
+  .f32Medium {
+    font-size: 32px;
+    font-weight: 500;
+  }
+  .f32Bold {
+    font-size: 32px;
+    font-weight: bold;
+  }
+  .f40Medium {
+    font-size: 40px;
+    font-weight: 500;
+  }
+  .f40Bold {
+    font-size: 40px;
+    font-weight: 500;
+  }
+  .f56Medium {
+    font-size: 56px;
+    font-weight: 500;
+  }
+}

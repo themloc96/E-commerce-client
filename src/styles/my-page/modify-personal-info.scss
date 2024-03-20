@@ -1,0 +1,141 @@
+@import '../helpers/variables';
+
+.modify-personal {
+  background-color: $color-bg2;
+  padding-top: 64px;
+  padding-bottom: 70px;
+
+  .heading-wrap {
+    display: none;
+  }
+
+  .identity-verification-btn {
+    background-color: $color-textSecondary1;
+  }
+
+  &-submit-btn {
+    margin-top: 59px;
+  }
+
+  form {
+    .common-input {
+      &::placeholder {
+        font-family: 'Noto Sans KR';
+        font-weight: 500;
+      }
+    }
+  }
+
+  @media (min-width: 768px) {
+    .heading-wrap {
+      display: block;
+      padding-bottom: 25.5px;
+      border-bottom: 1px solid $color-secondaryLine;
+      margin-bottom: 42.5px;
+    }
+
+    width: 588px;
+    margin: 108px auto 152px auto;
+    border-radius: 60px;
+    // padding: 55px 59px 70px 57px;
+    padding: 53.5px 59px 70px 58.5px;
+
+    .identity-verification-btn {
+      height: 60px;
+    }
+
+    &-submit-btn {
+      margin-top: 60px;
+      height: 60px;
+
+      span {
+        font-size: 24px;
+        font-weight: 500;
+        line-height: 18px;
+      }
+    }
+
+    form {
+      .common-input {
+        border-radius: 10px;
+        height: 60px;
+
+        &:placeholder {
+          font-family: 'Noto Sans KR';
+          font-weight: 500;
+        }
+      }
+
+      .common-input-label {
+        font-size: 20px;
+      }
+
+      .common-input[type=password]:not(:placeholder-shown) {
+        font-size: 57px;
+        padding-top: 5px;
+        letter-spacing: 1.8px;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 766px) {
+  .modify-personal {
+    padding-top: 57px;
+    padding-left: 24px;
+    padding-right: 24px;
+    height: 850px;
+
+    .motify-form {
+      // gap: 14px;
+      gap: 14.2px;
+    }
+
+    .common-input-label {
+      // margin-left: 9px;
+      margin-left: 10px;
+      padding-top: 1px;
+    }
+
+    .common-input {
+      height: 44px;
+      // padding-left: 10px;  
+
+      padding-left: 9px;
+      letter-spacing: -1px;
+      padding-bottom: 16px;
+    }
+
+    .common-input-sublabel {
+      margin-top: 0;
+      margin-left: 10px;
+    }
+
+    .identity-verification-btn {
+      span {
+        font-size: 12px;
+      }
+    }
+
+    .modify-personal-submit-btn {
+      border: solid 1px #fc5000;
+      padding-bottom: 3px;
+
+      span {
+        font-size: 16px;
+      }
+    }
+  }
+
+  .user-account {
+    .common-input {
+      letter-spacing: 0px;
+    }
+  }
+
+  .flex-email {
+    .common-input {
+      letter-spacing: 0px;
+    }
+  }
+}

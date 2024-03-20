@@ -1,0 +1,100 @@
+@import '../helpers/variables';
+@import '../base/typography';
+
+.ind-checkbox {
+  @media (min-width: 1024px) {
+    height: 28px;
+    width: 28px;
+  }
+
+  appearance: none;
+  overflow: hidden;
+  cursor: pointer;
+  position: relative;
+  display: inline-block;
+  height: 23px;
+  width: 23px;
+  vertical-align: middle;
+  transition: background-color 0.2s ease-in-out;
+  border: solid 1px rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+  background-color: white;
+
+  &:after {
+    content: "";
+    position: absolute;
+    border-bottom: 2px solid;
+    border-left: 2px solid;
+    border-color: transparent;
+    top: 30%;
+    left: 0;
+    right: 0;
+    width: 50%;
+    height: 25%;
+    margin: auto;
+    transform: rotate(-50deg);
+    transition: border-color 0.2s ease-in-out;
+  }
+
+  &:checked {
+    border: 0;
+    background-color: $color-primary;
+
+    &:after {
+      border-color: white;
+    }
+  }
+
+  &:disabled {
+    border: 0;
+    cursor: default;
+    opacity: 0.6;
+  }
+}
+
+.w-table {
+  .total-amount {
+    border-radius: 4px;
+    background-color: #333;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    color: #fff;
+    height: 72px;
+    padding: 0 49px 0 38px;
+    margin-bottom: 4px;
+    position: relative;
+
+    &-img {
+      width: 16px;
+      height: 16px;
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    &-value {
+      @include f18Medium;
+      font-family: 'Noto Sans KR';
+      letter-spacing: -0.36px;
+    }
+
+    @media screen and (min-width: 768px) {
+      padding-left: 273px;
+      padding-right: 283px;
+      height: 76px;
+
+      &-img {
+        width: 32px;
+        height: 32px;
+        margin-right: 37px;
+        margin-top: 0;
+      }
+      &-value {
+        @include f24Medium;
+        letter-spacing: normal;
+      }
+    }
+  }
+}

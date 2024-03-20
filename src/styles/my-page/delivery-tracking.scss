@@ -1,0 +1,157 @@
+@import '../base/typography';
+
+.delivery-tracking {
+  min-height: calc(100vh - 64px);
+  background-color: #f5f7fb;
+  padding-top: 24px;
+  @include f12Regular;
+  color: #333;
+
+  &-heading {
+    display: none;
+  }
+
+  &-courier,
+  &-recipient {
+    border-radius: 4px;
+    height: 44px;
+    background-color: #fff;
+    padding: 0 20px;
+    display: flex;
+    align-items: center;
+
+    span {
+      margin-top: -2px;
+
+      &:nth-of-type(1) {
+        font-weight: 500;
+        min-width: 109px;
+      }
+    }
+  }
+
+  &-courier {
+    &:nth-of-type(1) {
+      span {
+        margin-top: 0px;
+      }
+    }
+  }
+
+  &-recipient {
+    height: 42px;
+
+    &:nth-of-type(2) {
+      margin-top: 4px;
+      height: 62px;
+      padding-right: 30px;
+      line-height: 1.4;
+
+      span {
+        margin-top: 2px;
+      }
+    }
+  }
+
+  &-delivery-statuses {
+    margin-top: 10px;
+    border-radius: 4px;
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    gap: 11px;
+  }
+
+  &-delivery-status {
+    display: flex;
+
+    p {
+      &:nth-of-type(1) {
+        min-width: 106px;
+        font-weight: 500;
+      }
+    }
+  }
+
+  @media screen and (min-width: 768px) {
+    margin-top: -25px;
+    background-color: #fff;
+    @include f20Regular;
+
+    &-heading {
+      @include f32Medium;
+      display: block;
+      margin-top: 44px;
+      margin-left: 58px;
+    }
+
+    &-content {
+      margin-top: 20px;
+      padding: 70px 58px 78px 58px;
+      border-radius: 50px;
+      background-color: #f5f7fb;
+      margin-bottom: 50px;
+    }
+
+    &-courier {
+      width: 33.33%;
+      &:nth-of-type(2) {
+        padding-left: 32px;
+      }
+      + .delivery-tracking-recipient {
+        width: 33.33%;
+        padding-left: 33px;
+      }
+    }
+    &-courier,
+    &-recipient,
+    &-recipient:nth-of-type(2) {
+      height: 80px;
+      padding: 0 30px;
+      span {
+        margin: 0;
+        &:nth-of-type(1) {
+          font-size: 18px;
+        }
+      }
+    }
+    &-recipient {
+      &:nth-of-type(2) {
+        margin-top: 10px;
+      }
+    }
+    &-delivery-statuses {
+      background-color: transparent;
+      flex-direction: column;
+      margin-top: 25px;
+      position: relative;
+      justify-content: space-between;
+    }
+
+    &-delivery-status {
+      flex-direction: column;
+      text-align: center;
+      gap: 36px;
+
+      &:nth-of-type(2) {
+        padding-left: 4px;
+      }
+    }
+
+    &-delivery-status-title {
+      display: flex;
+      text-align: center;
+
+      p {
+        width: 33.33%;
+      }
+    }
+
+    &-delivery-status-content {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      border-radius: 4px;
+    }
+  }
+}

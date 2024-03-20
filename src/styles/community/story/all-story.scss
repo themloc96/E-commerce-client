@@ -1,0 +1,382 @@
+@import '../../helpers/variables';
+@import '../../base/typography';
+
+.all-story {
+  min-height: calc(100vh - 64px - 92px);
+  background-color: $color-bg2;
+  position: relative;
+  padding-top: 25px;
+  @media screen and (max-width: 769px) {
+    background-color: #fff;
+  }
+  .employee-container {
+    @media screen and (max-width: 769px) {
+      padding: 0;
+    }
+  }
+  &-search {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    padding-top: 78px;
+    margin-bottom: 61px;
+
+    @media screen and (max-width: 769px) {
+      padding: 39px 12px 0 12px;
+      margin-bottom: 33px;
+    }
+
+    .search {
+      display: flex;
+      width: 36.75rem;
+      border-bottom: 2px solid #1c1c1c;
+      padding-bottom: 8px;
+
+      .input-search {
+        text-align: center;
+        flex-grow: 1;
+        border: 0;
+        font-family: 'Noto Sans KR';
+        font-size: 1.25rem;
+        font-weight: normal;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: normal;
+        letter-spacing: normal;
+        text-align: center;
+        color: #1c1c1c;
+        padding-right: 0px;
+        padding-left: 5px;
+        padding-bottom: 6px;
+        position: relative;
+        top: -3px;
+        @media screen and (max-width: 769px) {
+          font-size: 16px;
+          top: -0.5px;
+          padding-left: 27px;
+          padding-bottom: 0;
+        }
+      }
+
+      .input-search:focus-visible {
+        outline: 0;
+      }
+
+      button {
+        background: none;
+        cursor: pointer;
+        border: 0;
+        padding: 0px 3px 3px;
+        @media screen and (max-width: 769px) {
+          // padding: 0px 0 3px 22px;
+          padding: 0 0 3px 0;
+          width: 24px;
+          min-width: 24px;
+          img {
+            width: 24px;
+            height: 24px;
+          }
+        }
+      }
+    }
+  }
+  &-header {
+    display: none;
+  }
+  &--has-border {
+    border-radius: 10px;
+    height: 80px;
+    background-color: white;
+    .division-column {
+      color: white;
+      text-align: center;
+      border-radius: 100px;
+      height: 32px;
+      padding: 0 16px;
+      width: fit-content;
+      display: flex;
+      align-items: center;
+      white-space: nowrap;
+      span {
+        font-size: 16px;
+      }
+    }
+    .story-date {
+      font-weight: 500;
+    }
+  }
+  &-table-wrap {
+    .story-list-mobile {
+      display: none;
+    }
+    @media screen and (max-width: 769px) {
+      // padding: 0 13px;
+      .story-list-mobile {
+        display: block;
+        margin-bottom: 36px;
+        .story-item {
+          height: 151px;
+          padding: 18px 16px 20px 20px;
+          border-radius: 4px;
+          background-color: #f5f7fb;
+          margin-bottom: 8px;
+          .row-1-story-information {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 7px;
+            img {
+              width: 16px;
+              height: 16px;
+            }
+            .division-story {
+              height: 25px;
+              display: flex;
+              flex-direction: row;
+              align-items: center;
+              border-radius: 50px;
+              font-size: 12px;
+              padding: 0 12px;
+              color: #fff;
+            }
+          }
+
+          .row-2-story-information {
+            padding-right: 63px;
+            line-height: 23px;
+            margin-bottom: 17px;
+            color: #333;
+            button {
+              text-align: left;
+            }
+          }
+
+          .row-3-story-information {
+            font-family: 'Noto Sans KR';
+            font-size: 12px;
+            color: #333;
+          }
+        }
+      }
+    }
+    // padding: 0 13px;
+    .row-gap {
+      color: transparent;
+      height: 10px;
+    }
+    table {
+      font-family: 'Noto Sans KR';
+      width: 100%;
+      @media screen and (max-width: 769px) {
+        display: none;
+      }
+    }
+    th {
+      font-weight: 500;
+      height: 79px;
+    }
+    td,
+    th {
+      text-align: center;
+      font-size: 12px;
+      padding: 14px 0;
+    }
+    tr:not(:first-child) td {
+      background-color: white;
+    }
+    td:first-child {
+      border: none;
+      // border-left-style: solid;
+      border-top-left-radius: 10px;
+      border-bottom-left-radius: 10px;
+    }
+    td:last-child {
+      border-right-style: solid;
+      border-bottom-right-radius: 10px;
+      border-top-right-radius: 10px;
+    }
+    .ind-checkbox {
+      height: 22px;
+      width: 22px;
+    }
+  }
+  &-btn-group {
+    display: flex;
+    gap: 10px;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: $color-white;
+    padding: 24px;
+    justify-content: center;
+    button {
+      width: 100%;
+    }
+  }
+  &-pagination {
+    // margin-top: 32px;
+    margin-top: 26px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    // gap: 16px;
+    gap: 12px;
+    button {
+      width: 8px;
+      height: 14.4px;
+    }
+    span {
+      @include f16Medium;
+    }
+    .next-btn {
+      transform: rotate(180deg);
+    }
+  }
+
+  @media screen and (max-width: 600px) {
+    // padding-top: 28px;
+    padding-top: 27px;
+
+    height: auto;
+    .mobile-disable,
+    .all-story-table-col-4 {
+      display: none;
+    }
+    &-pagination {
+      margin-top: 20px;
+      font-family: 'Noto Sans KR';
+    }
+    &-table-wrap {
+      td,
+      th {
+        padding: 5px 0 6px;
+      }
+      // .employee-table-col-1 {
+      // 	padding: 15px 0 11px !important;
+      // }
+      td:first-child,
+      th:first-child {
+        width: 11%;
+        padding: 13px 0 14px;
+        padding-left: 1px;
+      }
+      td:nth-child(2),
+      th:nth-child(2) {
+        width: 20%;
+        padding-right: 8px;
+      }
+      td:nth-child(3),
+      th:nth-child(3) {
+        width: 15%;
+        padding-right: 18px;
+      }
+      td:nth-child(5),
+      th:nth-child(5) {
+        width: 14%;
+        padding-right: 15px;
+      }
+      td:nth-child(6),
+      th:nth-child(6) {
+        width: 18%;
+        padding-right: 23px;
+      }
+    }
+  }
+
+  @media screen and (max-width: 769px) {
+    &--has-border {
+      border-bottom: 8px solid $color-bg2;
+    }
+  }
+
+  @media (min-width: 769px) {
+    min-height: unset;
+    padding-top: 0;
+    // margin-top: 110px;
+    background-color: transparent;
+    // &--has-border:not(:last-child) {
+    //   border-bottom: 10px solid $color-bg2;
+    // }
+    &-content {
+      background-color: $color-bg2;
+      padding: 29px 58px 70px 58px;
+      border-radius: 20px;
+      min-height: 17rem;
+    }
+    &-header {
+      h1 {
+        margin-bottom: 46px;
+      }
+      h2 {
+        padding-left: 57px;
+        margin-top: 46px;
+        margin-bottom: 20px;
+      }
+    }
+    &-table-wrap {
+      td,
+      th {
+        font-size: 20px;
+        // padding: 0 17.5px;
+        text-align: left;
+      }
+      td:first-child,
+      th:first-child {
+        width: 10%;
+        padding-left: 5%;
+      }
+      td:nth-child(2),
+      th:nth-child(2) {
+        width: 15%;
+      }
+      td:nth-child(3),
+      th:nth-child(3) {
+        width: 40%;
+      }
+      td:nth-child(4),
+      th:nth-child(4) {
+        width: 15%;
+        padding-right: 3%;
+      }
+    }
+    &-btn-group {
+      position: unset;
+      background-color: transparent;
+      button {
+        width: unset;
+        // padding: 13px 58px 14px;
+        padding-bottom: 2px;
+        height: 40px;
+        width: 150px;
+        font-size: 18px;
+      }
+      // padding-top: 51px;
+      padding-top: 53px;
+      padding-bottom: 0;
+    }
+    &-header {
+      display: block;
+    }
+    &-pagination {
+      // margin-top: 52px;
+      margin-top: 50px;
+      gap: 16px;
+      font-family: 'Noto Sans KR';
+      span {
+        @include f24Medium;
+      }
+    }
+  }
+
+  @media (min-width: 1440px) {
+    &-table-wrap {
+      td:nth-child(2),
+      th:nth-child(2) {
+        max-width: 142px;
+        min-width: 142px;
+      }
+    }
+  }
+}

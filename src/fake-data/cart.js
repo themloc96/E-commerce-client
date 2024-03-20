@@ -1,0 +1,31 @@
+export const products = [
+  {
+    id: 1,
+    name: '[키인S] 키인S 도어락 현관 현관문 디지털 지문인식 즉시잠김 보조키 라오나크…',
+    // name: '[키인S] 키인S 도어락 현관 현관문 현관문…',
+    selected: '옵션 1. 기본상품',
+    quantity: 1,
+    amount: 19000,
+    thumbNail: '/assets/cart/product-1.png',
+    checked: false,
+  },
+  {
+    id: 2,
+    name: '[키인S] 키인S 도어락 현관 현관문 디지털 지문인식 즉시잠김 보조키 라오나크…',
+    // name: '[키인S] 키인S 도어락 현관 현관문 현관문…',
+    selected: '옵션 1. 기본상품',
+    quantity: 1,
+    amount: 239000,
+    thumbNail: '/assets/cart/product-1.png',
+    checked: false,
+  },
+  // {
+  //   id: 3,
+  //   name: '[[키인S] 키인S 도어락 현관 현관문 디지털 지문인식 즉시잠김 보조키 라오나크',
+  //   selected: '옵션 1. 기본상품',
+  //   quantity: 1,
+  //   amount: 19000,
+  //   thumbNail: '/assets/cart/product-1.png',
+  //   checked: false,
+  // },
+];

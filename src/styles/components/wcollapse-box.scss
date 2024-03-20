@@ -1,0 +1,38 @@
+@import "../helpers/variables";
+@import "../base/typography";
+
+.wcollapse {
+  img {
+    width: 18px;
+    height: 18px;
+
+    &.icon-below {
+      transform: rotate(180deg);
+    }
+  }
+
+  &-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    padding: 0 12px 8px 12px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.6);
+  }
+
+  &-title {
+    @include f18Medium;
+  }
+  @media screen and (min-width: 768px) {
+    img {
+      display: none;
+    }
+    &-title {
+      @include f32Medium;
+    }
+    &-container {
+      padding: 0 0px 25px 0px;
+      cursor: unset;
+    }
+  }
+}

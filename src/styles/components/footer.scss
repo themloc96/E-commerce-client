@@ -1,0 +1,341 @@
+$grid-breakpoints: (
+    xs: 400px,
+    sm-430: 430px,
+    sm-440: 440px,
+    sm-470: 470px,
+    sm-500: 500px,
+    sm: 600px,
+    md-624:624px,
+    md: 768px,
+    lg: 900px,
+    xl: 1200px,
+    xxl: 1440px
+);
+
+@function breakpoint-min($name, $breakpoints: $grid-breakpoints) {
+    $min: map-get($breakpoints, $name);
+    @return if($min !=0, $min, null);
+}
+
+
+@function breakpoint-max($name, $breakpoints: $grid-breakpoints) {
+    $max: map-get($breakpoints, $name);
+    @return if($max and $max > 0, $max - .02, null);
+}
+
+@mixin media-breakpoint-down($name, $breakpoints: $grid-breakpoints) {
+    $max: breakpoint-max($name, $breakpoints);
+
+    @if $max {
+        @media (max-width: $max) {
+            @content;
+        }
+    }
+
+    @else {
+        @content;
+    }
+}
+
+@mixin media-breakpoint-up($name, $breakpoints: $grid-breakpoints) {
+    $min: breakpoint-min($name, $breakpoints);
+
+    @if $min {
+        @media (min-width: $min) {
+            @content;
+        }
+    }
+
+    @else {
+        @content;
+    }
+}
+
+.footer {
+    background-color: #f5f7fb;
+}
+
+.keyin-footer-container {
+    width: 100%;
+    margin-left: auto;
+    box-sizing: border-box;
+    margin-right: auto;
+    display: block;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    margin-left: auto;
+    margin: auto;
+}
+
+.keyin-footer {
+    display: flex;
+    flex-direction: column;
+
+    .keyin-info {
+        padding-left: 1.6875rem;
+        padding-top: 3.75rem;
+        padding-bottom: 3.75rem;
+    }
+}
+
+
+.keyin-address {
+    font-size: 1rem;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    text-align: left;
+    color: #000000;
+    padding-top: 0.5rem;
+}
+
+.keyin-contact {
+    display: flex;
+    align-items: baseline;
+    font-size: 1rem;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    text-align: left;
+    color: #000000;
+    font-family: 'Noto Sans KR';
+    padding-top: 0.5rem;
+
+    hr {
+        margin: 0 13px;
+        width: 0.063rem;
+        height: 0.75rem;
+        flex-grow: 0;
+        background-color: #a1a1a1;
+        border-right-width: 0;
+        -webkit-flex-shrink: 0;
+        -ms-flex-negative: 0;
+        flex-shrink: 0;
+        border-width: 0;
+    }
+}
+
+.keyin-copyright {
+    font-size: 1rem;
+    font-weight: 500;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    text-align: left;
+    color: #000000;
+    padding-top: 1.2rem;
+}
+
+.keyin-business-information {
+    padding-top: 0.5rem;
+    display: flex;
+    align-items: baseline;
+    font-size: 1rem;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    text-align: left;
+    color: #000000;
+    font-family: Noto Sans KR;
+
+    button {
+        text-decoration: underline;
+        padding-right: 10px;
+    }
+}
+
+.keyin-company {
+    display: flex;
+    align-items: baseline;
+    font-size: 1rem;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    text-align: left;
+    color: #000000;
+    font-family: 'Noto Sans KR';
+    padding-top: 1rem;
+
+    hr {
+        margin: 0 13px;
+        width: 0.063rem;
+        height: 0.75rem;
+        flex-grow: 0;
+        background-color: #a1a1a1;
+        border-right-width: 0;
+        -webkit-flex-shrink: 0;
+        -ms-flex-negative: 0;
+        flex-shrink: 0;
+        border-width: 0;
+    }
+}
+
+@include media-breakpoint-down(md) {
+    .keyin-address {
+        font-size: 0.75rem !important;
+    }
+
+    .keyin-contact {
+        font-size: 0.75rem !important;
+    }
+
+    .keyin-copyright {
+        font-size: 0.75rem !important;
+    }
+
+    .keyin-business-information {
+        font-size: 0.75rem;
+    }
+
+    .keyin-company {
+        font-size: 0.75rem
+    }
+
+    .keyin-contact {
+        hr {
+            margin: 0 0.625rem !important;
+            height: 0.625rem !important;
+        }
+    }
+    .keyin-business-information {
+        font-size: 0.75rem !important;
+    }
+}
+
+@include media-breakpoint-down(md-624) {
+    .keyin-footer-container {
+        max-width: 35.625rem !important;
+    }
+}
+
+@include media-breakpoint-down(sm) {
+    .keyin-footer-container {
+        max-width: 30rem !important;
+    }
+
+    .keyin-footer-logo {
+        display: flex;
+        justify-content: center;
+    }
+
+    .keyin-footer {
+        .keyin-info {
+            padding-left: 7px !important;
+            padding-right: 7px !important;
+            padding-top: 3.75rem !important;
+            padding-bottom: 5.125rem !important;
+            text-align: center !important;
+
+            .keyin-footer-logo {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+
+                img {
+                    width: 6rem !important;
+                }
+            }
+        }
+    }
+
+
+    .keyin-address {
+        text-align: center !important;
+        padding-top: 10px;
+    }
+
+    .keyin-contact {
+        text-align: center !important;
+        justify-content: center !important;
+        padding-top: 10px;
+    }
+
+    .keyin-copyright {
+        text-align: center !important;
+        padding-top: 30px;
+    }
+
+    .keyin-company {
+        text-align: center;
+        justify-content: center;
+        padding-top: 30px;
+    }
+
+    .keyin-representative {
+        text-align: center;
+        justify-content: center;
+        padding-bottom: 0;
+    }
+
+    .keyin-business-information {
+        justify-content: center;
+        text-align: center;
+    }
+}
+
+@include media-breakpoint-down(sm-500) {
+    .keyin-footer-container {
+        max-width: 28.5rem !important;
+    }
+}
+
+@include media-breakpoint-down(sm-470) {
+    .keyin-footer-container {
+        max-width: 26.5rem !important;
+    }
+}
+
+@include media-breakpoint-down(sm-440) {
+    .keyin-footer-container {
+        max-width: 24.5rem !important;
+    }
+}
+
+@include media-breakpoint-down(sm-430) {
+    .keyin-footer-container {
+        max-width: 23rem !important;
+    }
+}
+
+@include media-breakpoint-down(xs) {
+    .keyin-footer-container {
+        max-width: 21rem !important;
+    }
+}
+
+
+@include media-breakpoint-up(sm) {
+    .keyin-footer-container {
+        max-width: 600px;
+        padding-left: 24px;
+        padding-right: 24px;
+    }
+}
+
+@include media-breakpoint-up(lg) {
+    .keyin-footer-container {
+        max-width: 900px;
+    }
+}
+
+@include media-breakpoint-up(xl) {
+    .keyin-footer-container {
+        max-width: 1200px;
+    }
+}
+
+
+@include media-breakpoint-up(xxl) {
+    .keyin-footer-container {
+        max-width: 1440px;
+    }
+}

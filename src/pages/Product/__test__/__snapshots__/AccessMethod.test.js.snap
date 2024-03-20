@@ -1,0 +1,69 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AccessMethod Should render and match the snapshot 1`] = `
+<section
+  className="access-method border-bottom"
+>
+  <div
+    className="flex"
+  >
+    <p
+      className="f16Medium mr-[23px] lg:mr-[66px] lg:f20Medium"
+      style={
+        Object {
+          "lineHeight": "1",
+        }
+      }
+    >
+      출입방식
+    </p>
+    <ul
+      className="access-method-items"
+    >
+      <li>
+        <div
+          className="bg-bg2 rounded-[10px]"
+        >
+          <img
+            alt="비밀번호"
+            src="/assets/icons/password-icon.png"
+          />
+        </div>
+        <p
+          className="mt-2 text-center f12Regular xl:f16Regular"
+        >
+          비밀번호
+        </p>
+      </li>
+    </ul>
+  </div>
+  <div
+    className="mt-[49px] mb-[18px]"
+  >
+    <span
+      className="f16Medium lg:f20Medium"
+    >
+      디자인
+    </span>
+    <span
+      className="f16Regular lg:f20Medium ml-[60px] lg:ml-[85px]"
+    >
+      text game
+    </span>
+  </div>
+  <div
+    className="mb-6 lg:mt-[30px] lg:mb-[33px]"
+  >
+    <span
+      className="f16Medium lg:f20Medium"
+    >
+      App서비스
+    </span>
+    <span
+      className="f16Regular lg:f20Medium ml-[30px] lg:ml-[45px]"
+    >
+      text game
+    </span>
+  </div>
+</section>
+`;

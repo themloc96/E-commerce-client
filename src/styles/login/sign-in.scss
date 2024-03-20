@@ -1,0 +1,36 @@
+.input-div {
+  position: relative;
+  .sign-up-input {
+    padding: 23px 19.2px 23.2px 18px;
+    @media (max-width: 767px) {
+      padding: 15px 18.7px 15.2px 17px;
+    }
+  }
+
+  button {
+    display: block;
+    position: absolute;
+    right: 0;
+    margin-right: 26px;
+    top: 50%;
+    transform: translate(50%, -50%);
+    img {
+      width: 19px;
+      height: 15px;
+      max-height: 100%;
+      margin-right: 19.5px;
+      &.icon-delete {
+        width: 16px;
+        height: 16px;
+      }
+      @media (max-width: 767px) {
+        width: 13.8px;
+        height: 13.8px;
+        &.viewIcon{
+          width: 19px;
+          height: 15px;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,37 @@
+.pagination {
+  margin-top: 31px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1px;
+  span {
+    margin-top: -1px;
+    font-size: 16px;
+    padding: 0 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    button {
+      font-family: 'Noto Sans KR', sans-serif;
+      height: 100%;
+      line-height: 1;
+    }
+  }
+  .active-pagination {
+    background: rgba(17, 25, 39, 0.12);
+    border-radius: 100px;
+    width: 26px;
+    height: 26px;
+    padding: 0;
+  }
+  @media screen and (min-width: 768px) {
+    gap: 5px;
+    span {
+      font-size: 24px;
+    }
+    .active-pagination {
+      width: 36px;
+      height: 36px;
+    }
+  }
+}

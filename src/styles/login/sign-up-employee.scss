@@ -1,0 +1,55 @@
+@media (max-width: 767px) {
+  .styled-checkbox {
+    &.sign-up-employee + label {
+      &::before {
+        margin-right: 7px;
+        width: 22px;
+        margin-left: 1px;
+        margin-top: -1px;
+      }
+    }
+  }
+  .styled-checkbox {
+    &.sign-up-employee.policy-checkbox + label {
+      &::before {
+        margin-right: 8px;
+        width: 21px;
+        margin-top: 0;
+      }
+    }
+  }
+  .sign-up-input {
+    &.checkbox-rest {
+      padding-left: 18px !important;
+      gap: 10px;
+    }
+  }
+}
+@media (min-width: 768px) {
+  .sign-up-input {
+    &.checkbox-list {
+      padding-left: 20px !important;
+    }
+  }
+  .styled-checkbox {
+    &.sign-up-employee + label {
+      &::before {
+        width: 22px;
+        margin-top: 2px;
+        margin-right: 12px;
+      }
+    }
+  }
+  .sign-up-input {
+    &.checkbox-rest {
+      padding-left: 22px !important;
+    }
+  }
+  .styled-checkbox {
+    &.sign-up-employee.policy-checkbox + label {
+      &::before {
+        margin-right: 14px;
+      }
+    }
+  }
+}

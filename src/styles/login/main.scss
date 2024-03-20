@@ -1,0 +1,1506 @@
+.login-page {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+}
+
+.footer {
+  margin-top: auto;
+  padding-top: 0;
+}
+
+.login-box {
+  width: 588px;
+  height: auto;
+  flex-grow: 0;
+  margin: 100px auto 0 auto;
+  padding: 62px 58px;
+  border-radius: 60px;
+  background-color: #f5f7fb;
+  padding-top: 62px;
+}
+
+.login-box .line,
+.login-box .line-2 {
+  height: 1px;
+  margin: 35.5px 0 50.5px 0;
+  transform: rotate(-359.95deg);
+  background-color: #ccc;
+  z-index: 0;
+}
+
+.login-box .line {
+  margin-top: 34px;
+}
+
+.login-000 .line-2 {
+  margin: 38.5px 0 40.5px 0;
+}
+
+.login-title p {
+  font-size: 32px;
+  font-weight: 500;
+  /* margin-top: -2px; */
+  line-height: 1;
+}
+
+.login-title div {
+  font-size: 32px;
+  font-weight: 500;
+  /* margin-top: -2px; */
+  line-height: 1;
+}
+
+.login-page .signup-representative .login-title p {
+  margin-top: 0;
+}
+
+.login-page .signup-representative .line {
+  margin-bottom: 47.5px !important;
+}
+
+.select-login-method button {
+  display: block;
+  width: 472px;
+  height: 60px;
+  margin: 0 auto 10px auto;
+  font-family: 'Noto Sans KR', sans-serif;
+  font-size: 18px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.select-login-method button>div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.select-login-method button span {
+  padding-bottom: 2px;
+}
+
+.select-login-method button>div img {
+  margin-right: 10px;
+}
+
+.kakao-method {
+  color: black;
+  background-color: #fee500;
+}
+
+.naver-method {
+  background-color: #03c75a;
+  color: white;
+}
+
+.apple-method {
+  background-color: #000;
+  color: white;
+}
+
+.google-method {
+  background-color: #3e82f1;
+  color: white;
+}
+
+.id-method {
+  display: block;
+  width: 472px;
+  height: 60px;
+  margin: 0 auto 10px auto;
+  font-size: 18px;
+  border-radius: 4px;
+  background-color: #fff;
+  border: solid 1px rgba(102, 102, 102, 0.3);
+  cursor: pointer;
+}
+
+.member-method-link {
+  text-decoration: none;
+}
+
+.member-method {
+  display: block;
+  width: 472px;
+  /* height: 60px; */
+  margin: 0 auto 10px auto;
+  font-family: 'Noto Sans KR', sans-serif;
+  font-size: 18px;
+  border-radius: 4px;
+  background: none;
+  border: none;
+  margin-top: 32px;
+  cursor: pointer;
+}
+
+.styled-checkbox {
+  position: absolute;
+  opacity: 0;
+}
+
+.styled-checkbox+label {
+  position: relative;
+  cursor: pointer;
+  padding: 0;
+  font-size: 18px;
+  line-height: 13px;
+  margin-right: 20px;
+  display: flex;
+  align-items: center;
+}
+
+.styled-checkbox+label:before {
+  content: '';
+  margin-right: 9px;
+  display: inline-block;
+  vertical-align: text-top;
+  width: 22px;
+  height: 22px;
+  background: #fff;
+  border-radius: 4px;
+  border: solid 1px rgba(0, 0, 0, 0.2);
+}
+
+.styled-checkbox:hover+label:before {
+  background: #c8c8c8;
+}
+
+.styled-checkbox:checked+label:before {
+  background: #f35429;
+  border: none;
+}
+
+.styled-checkbox:disabled+label {
+  color: #b8b8b8;
+  cursor: auto;
+}
+
+.styled-checkbox:disabled+label:before {
+  box-shadow: none;
+  background: #ddd;
+}
+
+.styled-checkbox:checked+label:after {
+  content: '';
+  position: absolute;
+  left: 6px;
+  top: 10px;
+  background: white;
+  width: 2px;
+  height: 2px;
+  box-shadow: 2px 0 0 white, 4px 0 0 white, 4px -2px 0 white, 4px -4px 0 white,
+    4px -6px 0 white, 4px -8px 0 white;
+  transform: rotate(45deg);
+}
+
+/* sign-up */
+
+.checkbox-list {
+  padding-top: 21px !important;
+  padding-left: 18px !important;
+  border-radius: 4px 4px 0 0 !important;
+  height: 69px !important;
+}
+
+.other-checkbox {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.other-checkbox button {
+  border: none;
+  background: none;
+  font-size: 16px;
+  text-decoration: underline;
+  cursor: pointer;
+  margin-right: 4px;
+  line-height: 1;
+}
+
+.checkbox-rest {
+  height: 194px !important;
+  border-top: none !important;
+  border-radius: 0 0 4px 4px !important;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding-right: 16px !important;
+  padding-left: 21px !important;
+}
+
+.login-001 .sign-up-input,
+.find-id-002 .sign-up-input {
+  margin: 0 !important;
+  /* margin: 1px 0 0 0!important; */
+}
+
+.find-id-002 .sign-up-input {
+  padding: 22px 18px 23px 18px;
+  font-size: 20px;
+}
+
+.find-id-002 .input-3 {
+  font-size: 18px;
+}
+
+.password-005 .sign-up-input {
+  padding: 21px 18px 24px 17px;
+}
+
+.sign-up-container .sign-up-label {
+  margin: 30px 0 15px;
+  font-size: 20px;
+  line-height: 15px;
+  font-weight: 500;
+}
+
+.find-id-002 .sign-up-label {
+  margin: 29px 0 16px;
+}
+
+.find-id-002 .sign-up-label-name {
+  margin: 0 0 16px;
+}
+
+.login-001 .password-title {
+  margin-bottom: 17px;
+}
+
+.sign-up-success-text {
+  text-align: center;
+  color: #000;
+  font-size: 20px;
+  margin: 0;
+  padding-top: 2px;
+}
+
+.sign-up-success .sign-up-button {
+  background: #fc5000;
+  color: white;
+}
+
+.sign-up-input {
+  height: 60px;
+  /* margin: 16px 0 0; */
+  padding: 22px 18px 23px 18px;
+  border-radius: 4px;
+  /* border: solid 1px #666; */
+  background-color: #fff;
+  border: solid 1px rgba(102, 102, 102, 0.3);
+  font-family: 'Noto Sans KR', sans-serif;
+  font-size: 18px;
+  width: 100%;
+}
+
+/* .mt-595 {
+  margin-top: 59.5px !important;
+} */
+
+.mt-10 {
+  margin-top: 10px;
+}
+
+.mb-30 {
+  margin-bottom: 30px;
+}
+
+.err-input {
+  border: solid 1px red;
+}
+
+.login-001 .err-input::placeholder {
+  color: #ff0000;
+}
+
+.sign-up-input::placeholder {
+  font-family: 'Noto Sans KR', sans-serif;
+}
+
+.sign-up-button::-moz-placeholder {
+  font-family: 'Noto Sans KR', sans-serif;
+}
+
+.sign-up-input::-webkit-input-placeholder {
+  font-family: 'Noto Sans KR', sans-serif;
+}
+
+.sign-up-input:focus-visible {
+  border: solid 1px #666;
+  outline: none;
+}
+
+.sign-up-input:focus-visible::-webkit-input-placeholder {
+  /* Chrome/Opera/Safari */
+  color: black;
+}
+
+.sign-up-checkbox {
+  margin-top: 20px;
+  display: flex;
+}
+
+.sign-up-button {
+  width: 100%;
+  background: none;
+  height: 60px;
+  margin: 70px 0 0;
+  padding: 0;
+  border-radius: 60px;
+  border: solid 2px #fc5000;
+  font-size: 24px;
+  font-weight: 500;
+  color: #fc5000;
+  cursor: pointer;
+  &.active{
+    background: #fc5000;
+    color: #fff;
+  }
+}
+
+.login-001 .sign-up-button {
+  margin: 63px 0 0;
+  padding-bottom: 1px;
+}
+
+.password-005 .sign-up-button {
+  margin: 61px 0 0;
+}
+
+.password-005 .active-button {
+  background: #fc5000;
+  color: #fff;
+}
+
+.login-join-005 .sign-up-button {
+  margin: 61px 0 0;
+}
+
+.login-join-001 .sign-up-button {
+  margin: 60px 0 0;
+}
+
+.sign-up-button:disabled {
+  color: #fff;
+  border: solid 2px #acadb0;
+  background-color: #acadb0;
+  cursor: auto;
+}
+
+.login-join-001 .sign-up-button:disabled {
+  color: #fff;
+  border: solid 2px #acadb0;
+}
+
+.opa-100 {
+  margin-top: 59px;
+}
+
+.opa-100:disabled {
+  border: solid 2px #fc5000;
+  color: #fc5000;
+}
+
+.under-sign-up-button {
+  width: 450px;
+  margin: 49px auto 0 auto;
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+}
+
+.under-sign-up-button .h-line {
+  margin-top: 1px;
+  width: 1px;
+  height: 26px;
+  background-color: #ccc;
+}
+
+.under-sign-up-button button {
+  border: none;
+  background: none;
+  cursor: pointer;
+  font-size: 18px;
+  padding: 0;
+  /* width: 120px; */
+}
+
+/* find id */
+
+.find-id-flex {
+  display: flex;
+  /* align-items: flex-end; */
+  /* height: 60px; */
+  /* margin: 15px 0 0; */
+}
+
+.join-003 .description-label {
+  margin: 10px 0 0;
+}
+
+.join-003>div {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.find-id-flex>div {
+  /* min-width: 57%; */
+  width: 100%;
+}
+
+.find-id-flex button {
+  min-width: 157px;
+  height: 60px;
+  flex-grow: 0;
+  margin: 0 0 0 10px;
+  /* padding: 19px; */
+  border-radius: 60px;
+  border: solid 1px rgba(0, 0, 0, 0.5);
+  cursor: pointer;
+  background: none;
+  font-size: 18px;
+  line-height: normal;
+}
+
+.find-id-flex>div {
+  position: relative;
+}
+
+.find-id-flex>div>span {
+  font-size: 16px;
+  color: rgba(0, 0, 0, 0.5);
+}
+
+.description-label {
+  font-size: 16px;
+  color: rgba(0, 0, 0, 0.5);
+  margin-bottom: 16px;
+  margin-top: 20px;
+  line-height: 12px;
+}
+
+.input-wrap {
+  position: relative;
+}
+
+.err-label {
+  color: red !important;
+  font-size: 16px;
+}
+
+.timer {
+  position: absolute;
+  /* right: 8px; */
+  right: 17px;
+  color: red;
+}
+
+.find-id-002 .timer {
+  top: 15px;
+}
+
+.upload-file {
+  pointer-events: none;
+}
+
+.upload-file-label {
+  cursor: pointer;
+}
+
+.checkbox-icon-input {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.p-align-center {
+  text-align: center;
+  font-weight: 500;
+  font-size: 20px;
+}
+
+/* sign-up */
+.sign-up-classification {
+  display: flex;
+  margin-top: 40px;
+  gap: 10px;
+}
+
+.sign-up-classification button {
+  width: 100%;
+  height: 60px;
+  font-size: 20px;
+  padding: 0 0 0;
+  border-radius: 4px;
+  border: solid 1px rgba(102, 102, 102, 0.3);
+  background-color: #fff;
+  cursor: pointer;
+}
+
+.black-button {
+  background: #000 !important;
+  color: #fff;
+}
+
+.sign-up-classification .selected {
+  background-color: #000;
+  color: #fff;
+}
+
+.sign-up-enable {
+  background-color: #fc5000;
+  color: #fff;
+}
+
+.file-uploaded-div {
+  position: relative;
+  margin-top: 17px;
+}
+
+.file-uploaded-div button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 18px;
+  cursor: pointer;
+  background: none;
+  border: none;
+}
+
+.login-join-005 .file-uploaded-div>button>img {
+  margin-top: 3px;
+}
+
+/* change password */
+
+/* .modal-find-password {
+  width: 518px;
+  height: 325px;
+} */
+
+.modal-find-password .modal-header {
+  margin-top: 18px;
+  padding: 0 18px;
+}
+
+.modal-find-password .modal-content {
+  padding-top: 19px;
+}
+
+.modal-find-password .find-id-005 {
+  padding-top: 19px;
+}
+
+.find-id-005 button {
+  width: 136px !important;
+  border-radius: 100px;
+  border: solid 1px rgba(0, 0, 0, 0.5);
+  width: 158px;
+  height: 60px;
+  font-size: 18px;
+}
+
+.policy-modal {
+  width: 518px;
+  /* padding: 45px 39px 45px 47px !important; */
+  padding: 45px 39px 45px 45px !important;
+  height: 1038px;
+  /* inset: 70% auto auto 50% !important; */
+  max-height: 80vh;
+  /*overflow: hidden; */
+  &-body {
+    max-height: calc(100vh - 435px);
+    overflow-y: auto;
+  }
+}
+
+.policy-modal .styled-checkbox+label:before {
+  width: 28px;
+  height: 28px;
+}
+
+.policy-modal .styled-checkbox:checked+label:after {
+  width: 3px;
+  height: 3px;
+  left: 8px;
+  top: 13px;
+}
+
+.policy-modal .modal-title {
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 15px;
+}
+
+.policy-modal .modal-header {
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 15px;
+  /* position: fixed; */
+  left: 0;
+  right: 0;
+  /* padding: 0 46px; */
+  /* padding-bottom: 53px; */
+  /* height: 65px; */
+  height: 48px;
+  top: 44px;
+  background: #fff;
+}
+
+.policy-modal .modal-header img {
+  position: absolute;
+  top: 44px !important;
+  right: 38px;
+}
+
+.policy-modal .modal-header button {
+  width: 24px;
+  height: 24px;
+  /* margin-right: -8px; */
+  margin-top: 0;
+}
+
+.policy-modal .modal-header .title-modal {
+  padding-top: 4px;
+}
+
+.policy-modal .policy-content p {
+  margin: 0;
+  line-height: 15px;
+  color: #666;
+}
+
+.policy-modal .policy-content {
+  /* max-height: calc(80vh - 125px); */
+  max-height: calc(75vh - 125px);
+  /* overflow: scroll; */
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+.login-page::-webkit-scrollbar {
+  display: none;
+}
+
+.policy-modal .policy-part-title {
+  /* margin-top: 60px !important; */
+  margin-top: 61px !important;
+  /* margin-bottom: 20px !important; */
+  margin-bottom: 19px !important;
+  line-height: 15px !important;
+  font-size: 20px;
+  font-weight: 500;
+  color: #000 !important;
+}
+
+.policy-modal .start-title {
+  /* margin-top: 53px !important; */
+  margin-top: 6px !important;
+  padding-top: 24px;
+}
+
+.policy-modal .policy-part-title-2 {
+  margin-top: 38px !important;
+  /* margin-bottom: 15px !important; */
+  margin-bottom: 14px !important;
+  line-height: 15px !important;
+  font-size: 18px;
+  color: #000 !important;
+  font-weight: 500;
+}
+
+.policy-modal .last-line {
+  margin-top: 50px !important;
+  color: #000 !important;
+  font-size: 18px;
+}
+
+.policy-modal .policy-checkbox {
+  /* position: fixed; */
+  /* bottom: calc((5vh - 40px)); */
+  /* transform: translate(0, -50%); */
+  /* transform: translate(0, -25%); */
+  /* padding-top: 18px; */
+}
+
+.policy-modal .policy-checkbox .styled-checkbox+label:before {
+  border-radius: 22px;
+}
+
+.policy-modal .custom-dialog {
+  position: relative;
+  /* overflow: scroll; */
+}
+
+.first-line-title {
+  margin-bottom: 13px !important;
+}
+
+.join-ceo-005 .description-label {
+  margin-bottom: 14px;
+}
+
+.join-ceo-005 .sign-up-input {
+  padding-left: 16px;
+}
+
+.join-ceo-005 .sign-up-button,
+.join-staff-001 .sign-up-button {
+  margin-top: 60px;
+}
+
+.join-ceo-005 .checkbox-rest {
+  padding: 23px 20px 23px 23px;
+}
+
+.sign-up-success .login-box {
+  margin: 247px auto 319px auto;
+}
+
+.sign-up-success .login-box .line {
+  margin: 37px 0 51.5px 0;
+}
+
+.sign-up-success .login-box .sign-up-success-text {
+  padding-top: 0;
+}
+
+.sign-up-success .login-box .sign-up-button {
+  margin-top: 62px;
+}
+
+@media screen and (max-width: 767px) {
+  .sign-up-label {
+    padding-left: 9px;
+  }
+
+  .join-003 .description-label {
+    margin: 1px 0 9px 9px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .timer {
+    right: 8px;
+  }
+
+  .find-id-002 .timer {
+    top: 10px;
+  }
+
+  .policy-modal {
+    max-height: 80vh;
+    /* overflow: scroll; */
+    height: auto;
+  }
+
+  .find-id-002 .timer {
+    top: 10px;
+  }
+
+  .policy-modal .modal-header {
+    /* position: fixed;
+    left: 0;
+    padding-right: 30px;
+    right: 0;
+    top: 40px;
+    padding-left: 30px; */
+    margin: 0 auto;
+    font-size: 16px;
+    line-height: normal;
+  }
+
+  .policy-modal .modal-header .title-modal {
+    padding-top: 0;
+    margin-left: 0;
+    /* margin-top: -4px; */
+  }
+
+  .policy-modal .modal-header button {
+    margin-right: -6px;
+    /* margin-top: -8px; */
+  }
+
+  .policy-modal .modal-header button svg {
+    /* width: 20px;
+    height: 20px; */
+    width: 18px;
+    height: 18px;
+  }
+
+  .policy-modal .policy-content {
+    max-height: 56vh;
+    overflow: scroll;
+    /* padding: 10px 0; */
+  }
+
+  ::-webkit-scrollbar {
+    display: none;
+  }
+
+  .policy-modal .modal-header img {
+    width: 18px;
+  }
+
+  .policy-modal .policy-checkbox {
+    /* bottom: 23px; */
+    background: #fff;
+    width: 100%;
+    overflow: hidden;
+    /* padding-top: 10px; */
+    transform: none;
+  }
+
+  .policy-modal {
+    width: 336px;
+    /* padding: 42.5px 30px !important; */
+    padding: 36.5px 29px !important;
+    inset: 48% auto auto 50% !important;
+  }
+
+  .policy-modal .modal-title {
+    font-size: 16px;
+  }
+
+  .policy-modal .policy-content p {
+    font-size: 14px;
+    line-height: normal;
+  }
+
+  .policy-modal .policy-part-title {
+    /* margin-top: 30px !important; */
+    margin-top: 0px !important;
+    /* margin-bottom: 14px !important; */
+    margin-bottom: 7px !important;
+    font-size: 16px !important;
+    line-height: 15px !important;
+    padding-top: 11px;
+  }
+
+  .login-page {
+    background-color: #f5f7fb;
+    /* padding-bottom: 129px; */
+  }
+
+  .first-line-title {
+    margin-top: 92px !important;
+  }
+
+  .login-box {
+    width: 100%;
+    padding: 0 24px;
+    /* margin-bottom: 0 !important; */
+    /* margin-top: 64px; */
+    margin-top: 63.5px;
+    /* margin-bottom: 128px; */
+  }
+
+  .login-000 .id-method p {
+    margin-bottom: 1px;
+  }
+
+  .login-001 .sign-up-button {
+    margin: 41px 0 0;
+  }
+
+  .select-login-method button,
+  .id-method,
+  .member-method {
+    width: 100%;
+    height: 44px;
+    font-size: 16px;
+    padding: 0;
+  }
+
+  .under-sign-up-button {
+    width: 100%;
+    margin-top: 34px;
+  }
+
+  .under-sign-up-button button {
+    font-size: 14px;
+    padding: 0;
+  }
+
+  .under-sign-up-button .left-button {
+    padding-right: 8px !important;
+  }
+
+  .under-sign-up-button .center-button {
+    padding: 0 8px !important;
+  }
+
+  .under-sign-up-button .right-button {
+    padding-left: 8px !important;
+  }
+
+  .sign-up-classification {
+    gap: 8px;
+  }
+
+  .sign-up-classification button {
+    width: 100%;
+  }
+
+  .login-box.sign-up {
+    height: calc(100vh - 64px - 282.95px);
+  }
+
+  .find-id-flex {
+    align-items: flex-start;
+  }
+
+  .find-id-flex button {
+    min-width: 90px;
+    font-size: 12px;
+    padding: 8px;
+    height: 44px;
+  }
+
+  .sign-up-input {
+    height: 44px;
+    font-size: 14px;
+    padding: 0 9px;
+  }
+
+  .file-uploaded-div button {
+    /* width: 18px; */
+    padding: 0;
+  }
+
+  .close-file-selected {
+    width: 18px !important;
+    min-width: auto !important;
+    height: 18px !important;
+    top: 12px !important;
+    right: 22px !important;
+  }
+
+  .file-uploaded-div {
+    margin-top: 0;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .under-sign-up-button {
+    padding: 2px 0 0 1px;
+    align-items: center;
+    gap: 0;
+  }
+
+  .under-sign-up-button .h-line {
+    margin-top: 4px;
+    width: 1px;
+    height: 16px;
+    background-color: #ccc;
+  }
+
+  .under-sign-up-button button {
+    font-size: 14px;
+    letter-spacing: -0.28px;
+  }
+
+  .password-005 .mt-595 {
+    margin-top: 30px !important;
+  }
+
+  .first-line-title {
+    margin-bottom: 14px !important;
+  }
+
+  .sign-up-button {
+    margin-top: 42px;
+    font-size: 16px;
+    border: solid 1px #fc5000;
+    height: 44px;
+    padding: 0;
+    /* margin-top: 58px !important;
+    padding: 0px 1px 0px 0px;
+    letter-spacing: -0.2px; */
+  }
+
+  .sign-up-employee {
+    margin-top: 58px !important;
+    padding: 0px 1px 0px 0px;
+    letter-spacing: -0.2px;
+  }
+
+  .sign-up-button-find-id {
+    /* padding-left: 1.5px;
+    letter-spacing: -0.1px; */
+    padding-left: 0px;
+    letter-spacing: -0.3px;
+    padding-bottom: 1px;
+  }
+
+  .password-005 .sign-up-button {
+    margin-top: 60px !important;
+  }
+
+  .find-id-flex {
+    /* height: 44px; */
+    align-items: flex-start;
+  }
+
+  .mb-30 {
+    /* margin-bottom: 20px; */
+    margin-bottom: 19px;
+  }
+
+  .find-id-flex button {
+    min-width: 90px;
+    font-size: 12px;
+    padding: 8px;
+    height: 44px;
+  }
+
+  .sign-up-input {
+    height: 44px;
+    font-size: 14px;
+    padding: 0 9px;
+  }
+
+  .sign-up-container .sign-up-label {
+    font-size: 16px;
+    /* margin: 19px 0 10px; */
+    /* margin: 19.5px 0 10px; */
+    margin: 19.1px 0 10px;
+  }
+
+  .sign-up-container .이름 {
+    padding-left: 6px;
+  }
+
+  .err-label {
+    /* font-size: 13px; */
+    font-size: 12px;
+    padding-left: 9px;
+  }
+
+  .login-001 {
+    margin-top: 31px !important;
+  }
+
+  .login-001 .sign-up-input {
+    margin: 0 !important;
+    border-radius: 4px;
+  }
+
+  .sign-up-label {
+    padding-left: 10px;
+    padding-top: 0.05rem;
+  }
+
+  .login-001 .sign-up-checkbox {
+    margin-top: 17px;
+    /* margin-left: 2px; */
+  }
+
+  .login-001 .styled-checkbox:checked+label:before,
+  .login-001 .styled-checkbox+label:before {
+    margin-right: 6px;
+  }
+
+  .find-id-002 .sign-up-input {
+    padding: 16px 0 18px 9px;
+    font-size: 14px;
+    line-height: 16px;
+  }
+
+  .login-page .signup-representative {
+    margin-top: 71px;
+  }
+
+  .login-page .signup-representative .line {
+    margin-bottom: 31px !important;
+  }
+
+  .login-box .line {
+    /* margin: 20.5px 0 31px !important; */
+    margin: 20px 0 31px !important;
+    z-index: 0;
+  }
+
+  .login-box .line-2 {
+    margin: 32px 0;
+  }
+
+  .id-method {
+    font-size: 16px;
+    margin-bottom: 8px;
+  }
+
+  .member-method {
+    font-size: 14px;
+    margin-top: 0;
+  }
+
+  .select-login-method {
+    padding-top: 2px;
+  }
+
+  .select-login-method button {
+    margin: 0 auto 8px auto;
+  }
+
+  .select-login-method button>div img,
+  .select-login-method .google-method>div img {
+    display: block;
+    width: 20px;
+    margin-right: 4px;
+  }
+
+  .select-login-method .google-method>div span {
+    padding-bottom: 3px;
+  }
+
+  .sign-up-success .login-title p {
+    margin-top: 0;
+  }
+
+  .login-title p {
+    font-size: 24px;
+    text-align: left !important;
+    letter-spacing: -0.48px;
+    margin-top: -4px;
+  }
+
+  .login-page .signup-representative .login-title p {
+    margin-top: -10px;
+  }
+
+  .login-title p span {
+    display: block;
+    line-height: normal;
+  }
+
+  .sign-up-success-text {
+    font-size: 16px;
+    text-align: left;
+    padding-top: 4px;
+  }
+
+  .styled-checkbox+label {
+    font-size: 14px;
+  }
+
+  .styled-checkbox+label span {
+    margin-top: 0px;
+  }
+
+  .description-label {
+    font-size: 12px;
+    margin: -0.2rem 0 9.5px;
+    padding-left: 9px;
+  }
+
+  .modal-find-password {
+    width: 312px;
+    height: auto;
+    padding-bottom: 24px !important;
+  }
+
+  .modal-find-password .modal-content {
+    padding: 4px 0 0;
+  }
+
+  .modal-find-password .find-id-005 {
+    padding-top: 9px;
+  }
+
+  .modal-find-password .modal-header {
+    margin-top: 0;
+    padding: 0;
+  }
+
+  .modal-find-password .modal-header svg {
+    width: 18px;
+    height: 18px;
+  }
+
+  .sign-in-button-find-pass-009 {
+    letter-spacing: -0.32px;
+    font-weight: 500;
+  }
+
+  .find-id-005 p,
+  .find-password-009 p,
+  .id-user {
+    font-size: 16px !important;
+  }
+
+  .find-id-005 p:nth-child(2) {
+    margin-top: -1px;
+  }
+
+  .id-user {
+    margin: 8px 0 30px !important;
+  }
+
+  .find-id-005 button {
+    width: 136px !important;
+  }
+
+  .find-id-005 button,
+  .find-password-009 button {
+    height: 44px !important;
+    font-size: 16px !important;
+    padding: 0 !important;
+  }
+
+  .sign-in-button-find-pass-009 {
+    margin-top: 24px !important;
+    width: 100% !important;
+  }
+
+  .sign-in-button-005 {
+    margin-right: 8px !important;
+  }
+
+  .sign-up-classification button {
+    font-size: 14px;
+    height: 44px;
+    padding: 0;
+  }
+
+  .sign-up-classification {
+    margin: 0;
+  }
+
+  .p-align-center {
+    text-align: left;
+    margin-top: 33.5px !important;
+  }
+
+  .login-join-001 .p-align-center {
+    text-align: left;
+    margin-top: 31.5px !important;
+    margin-bottom: 13px;
+  }
+
+  .login-join-001 .mt-custom {
+    /* margin-top: 33.5px !important; */
+    margin-top: 32.5px !important;
+  }
+
+  .login-join-005 .sign-up-button {
+    margin: 42px 0 0;
+  }
+
+  .find-id-flex>div>span {
+    font-size: 12px;
+    line-height: 9px;
+  }
+
+  .file-uploaded-div button {
+    width: 18px;
+    padding: 0;
+  }
+
+  .other-checkbox button {
+    font-size: 12px;
+    padding: 0;
+    /* margin-top: -0.2rem;
+    margin-right: 0.1rem; */
+  }
+
+  .policy-checkbox+label {
+    margin: 0;
+  }
+
+  .mt-10 {
+    margin-top: 6px;
+  }
+
+  .join-003 .description-label {
+    /* margin: 1px 0 10px; */
+    margin: 1px 0 9px;
+  }
+
+  .join-003 .sign-up-label {
+    margin-bottom: 7px !important;
+  }
+
+  .file-uploaded-div {
+    margin-top: 0;
+  }
+
+  .close-file-selected {
+    width: 18px !important;
+    min-width: auto !important;
+    height: 18px !important;
+    top: 12px !important;
+    right: 22px !important;
+  }
+
+  .join-ceo-005 .sign-up-input {
+    padding-left: 9px;
+  }
+
+  .join-ceo-005 .description-label {
+    margin-bottom: 7px;
+  }
+
+  .join-ceo-005 .no-padding-left {
+    padding-left: 0;
+  }
+
+  .no-padding-left {
+    padding-left: 0;
+  }
+
+  .checkbox-list {
+    /* height: 59px !important; */
+    height: 60px !important;
+    padding: 19px !important;
+  }
+
+  .checkbox-rest {
+    /* padding: 19px !important; */
+    padding: 18px !important;
+    height: 159px !important;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 10px;
+  }
+
+  .join-ceo-005 .checkbox-rest {
+    padding-top: 18px !important;
+    padding-right: 20px !important;
+    padding-bottom: 22px !important;
+  }
+
+  .styled-checkbox+label:before {
+    margin-right: 9px;
+  }
+
+  .policy-modal .policy-checkbox .styled-checkbox+label:before {
+    border-radius: 4px;
+    width: 23px;
+    height: 23px;
+  }
+
+  .policy-modal .styled-checkbox:checked+label:after {
+    left: 6px;
+    top: 10px;
+  }
+
+  .sign-up-success .login-box {
+    margin-top: 54px;
+    margin-bottom: 376px;
+  }
+
+  .sign-up-success .login-box.signup-representative {
+    margin-top: 64px;
+    margin-bottom: 376px;
+  }
+
+  .sign-up-success .login-box .line {
+    margin: 15.5px 0 26px !important;
+  }
+
+  .sign-up-success .sign-up-button {
+    margin-top: 42px;
+    /* background: #fc5000;
+    color: white; */
+    /* margin-bottom: 130px; */
+    /* margin: 70px 0; */
+  }
+
+  .sign-up-success .login-box .sign-up-button {
+    margin-top: 37px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .find-password-009 p span {
+    display: block;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .under-sign-up-button {
+    padding: 2px 0 0 1px;
+    align-items: center;
+    gap: 0;
+  }
+
+  .under-sign-up-button .h-line {
+    margin-top: 4px;
+    width: 1px;
+    height: 16px;
+    background-color: #ccc;
+  }
+
+  .under-sign-up-button button {
+    font-size: 14px;
+    letter-spacing: -0.28px;
+  }
+
+  .find-id-002 .sign-up-label {
+    padding-left: 6.7px;
+  }
+
+  .find-id-002 .sign-up-label-name {
+    padding-left: 10px;
+  }
+
+  .find-id-002 .sign-up-input {
+    padding: 16px 0 18px 9px;
+    line-height: 16px;
+  }
+
+  .find-id-flex button {
+    margin: 0 0 0 12px;
+    /* padding: 8px 8px 9px; */
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .password-005 .description-label {
+    margin: 10px 0 8px;
+  }
+
+  .password-005 .sign-up-input {
+    padding: 21px 18px 21px 17px;
+  }
+
+  .modal-find-password .modal-content {
+    padding: 13px 0 0;
+  }
+
+  .modal-find-password .find-id-005 {
+    padding: 10px 0 0;
+  }
+
+  .modal-find-password .find-password-009 {
+    padding: 9px 0 0;
+  }
+
+  .modal-find-password .find-password-009 p:nth-child(2) {
+    padding-bottom: 1px;
+  }
+
+  .modal-find-password .modal-content p>span {
+    padding: 0 2px 0 0;
+  }
+
+  .modal-find-password .modal-content .sign-in-button-find-pass-009 p {
+    padding: 0 0 2px;
+  }
+
+  .id-user {
+    margin: 6px 0 31px !important;
+  }
+
+  .pl-unset {
+    padding-left: 6px;
+  }
+}

@@ -1,0 +1,3927 @@
+$grid-breakpoints: (
+  xs: 0,
+  sm-400: 400px,
+  sm: 601px,
+  md: 769px,
+  lg: 900px,
+  xl: 1200px,
+  xxl: 1440px,
+);
+
+@function breakpoint-min($name, $breakpoints: $grid-breakpoints) {
+  $min: map-get($breakpoints, $name);
+  @return if($min !=0, $min, null);
+}
+
+@function breakpoint-max($name, $breakpoints: $grid-breakpoints) {
+  $max: map-get($breakpoints, $name);
+  @return if($max and $max > 0, $max - 0.02, null);
+}
+
+@mixin media-breakpoint-down($name, $breakpoints: $grid-breakpoints) {
+  $max: breakpoint-max($name, $breakpoints);
+
+  @if $max {
+    @media (max-width: $max) {
+      @content;
+    }
+  } @else {
+    @content;
+  }
+}
+
+@mixin media-breakpoint-between(
+  $lower,
+  $upper,
+  $breakpoints: $grid-breakpoints
+) {
+  $min: breakpoint-min($lower, $breakpoints);
+  $max: breakpoint-max($upper, $breakpoints);
+
+  @if $min !=null and $max !=null {
+    @media (min-width: $min) and (max-width: $max) {
+      @content;
+    }
+  } @else if $max ==null {
+    @include media-breakpoint-up($lower, $breakpoints) {
+      @content;
+    }
+  } @else if $min ==null {
+    @include media-breakpoint-down($upper, $breakpoints) {
+      @content;
+    }
+  }
+}
+
+.keyin-parent {
+  @include media-breakpoint-between(xs, md) {
+    background-color: #ffffff;
+  }
+}
+
+.keyin-slider {
+  width: 100%;
+  // height: 50rem;
+  height: max-content;
+  // background-color: #c4c4c4;
+  position: relative;
+  cursor: pointer;
+  // @media (min-width: 601px) and (max-width: 899px) {
+  //     padding-left: 1rem !important;
+  // }
+
+  .swiper-wrap {
+    display: flex;
+    flex-direction: column;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 1440px;
+    height: 50rem;
+    position: relative;
+
+    img {
+      position: absolute;
+      top: 0;
+      left: 0;
+
+      /* Preserve aspet ratio */
+      min-width: 100%;
+      min-height: 100%;
+    }
+
+    @media (max-width: 1919px) {
+      margin-left: auto;
+      margin-right: auto;
+      padding-left: 12px;
+      padding-right: 12px;
+    }
+
+    @media (max-width: 1440px) {
+      margin: 0;
+    }
+
+    // @media (min-width: 992px) and (max-width: 1919px) {
+    //     margin-left: 12.461%;
+    //     margin-right: 12.461%;
+    // }
+
+    // @media (min-width: 900px) and (max-width: 991px) {
+    //     margin-left: 4.714%;
+    //     margin-right: 4.714%;
+    // }
+
+    @include media-breakpoint-between(xl, xxl) {
+      max-width: 1440px;
+      width: 100%;
+      height: 50rem;
+    }
+
+    @include media-breakpoint-between(lg, xl) {
+      width: 100%;
+      height: 45rem;
+    }
+
+    @include media-breakpoint-between(md, lg) {
+      width: 100%;
+      height: 40rem;
+    }
+
+    @include media-breakpoint-between(xs, md) {
+      width: 100%;
+      height: 100vw;
+      // height: 48.44vw;
+      // height: 23.25rem
+    }
+
+    // @include media-breakpoint-between(sm-400, sm) {
+    //   width: 100%;
+    //   height: 18.25rem;
+    // }
+
+    // @include media-breakpoint-between(xs, sm-400) {
+    //   width: 100%;
+    //   height: 15rem;
+    // }
+
+    .title {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-start;
+      padding-top: 207px;
+      z-index: 1;
+
+      .keyin-s {
+        display: flex;
+        flex-direction: column;
+        flex-grow: 0;
+        font-family: 'Noto Sans KR';
+        // font-size: 1.666666vw;
+        font-size: 2rem;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: normal;
+        font-weight: normal;
+        letter-spacing: -0.48px;
+        text-align: left;
+        color: #000;
+
+        .font-bold {
+          font-weight: bold;
+          padding-top: 0.9rem;
+
+          @include media-breakpoint-between(xs, md) {
+            // margin-top: -0.04rem;
+            padding-top: 0.65rem;
+          }
+        }
+
+        @include media-breakpoint-between(md, lg) {
+          font-size: 1.75rem;
+        }
+
+        @include media-breakpoint-between(xs, md) {
+          font-size: 1.5rem;
+        }
+      }
+
+      .keyin-desc {
+        padding-top: 34px;
+        margin-left: 0;
+        font-size: 1rem;
+        font-family: 'Noto Sans KR';
+        font-weight: 500;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: normal;
+        letter-spacing: normal;
+        text-align: left;
+        color: #000;
+        // margin-left: -0.1rem;
+
+        .letter-space {
+          letter-spacing: -0.24px;
+
+          @include media-breakpoint-between(xs, md) {
+            letter-spacing: -0.24px;
+            padding-left: 0.15rem;
+          }
+        }
+
+        span {
+          span {
+            &:nth-child(2) {
+              @include media-breakpoint-between(xs, md) {
+                display: flex;
+              }
+            }
+          }
+        }
+
+        @include media-breakpoint-between(md, lg) {
+          font-size: 0.975rem;
+        }
+
+        @include media-breakpoint-between(xs, md) {
+          font-size: 0.875rem;
+          width: 17.75rem;
+          padding-top: 0.8rem;
+          line-height: 1.95 !important;
+          margin-left: 0rem;
+        }
+      }
+
+      @media (max-width: 1919px) {
+        padding-top: 156px;
+      }
+
+      @include media-breakpoint-between(xs, md) {
+        // padding-left: 2.25rem;
+        padding-top: 3.28rem;
+      }
+    }
+
+    // .pagination {
+    //     display: flex;
+    //     flex-direction: row;
+    //     justify-content: flex-start;
+    //     align-items: center;
+    //     padding-top: 60px;
+    //     z-index: 1;
+
+    //     .paging-count {
+    //         width: 152.5px;
+    //         height: 44px;
+    //         border-radius: 100px;
+    //         background-color: rgba(0, 0, 0, 0.4);
+    //         flex-grow: 0;
+    //         display: flex;
+    //         flex-direction: row;
+    //         justify-content: center;
+    //         align-items: center;
+    //         padding: 0.625rem 0.375rem;
+
+    //         button {
+    //             background: none;
+    //             border: 0;
+    //             padding: 0;
+    //             height: 24px;
+    //             cursor: pointer;
+    //             display: flex;
+    //             align-items: center;
+
+    //             .paging-count-svg {
+    //                 color: #FFFFFF;
+
+    //                 @include media-breakpoint-between(xs, sm) {
+    //                     color: #1C1C1C;
+    //                     width: 17px;
+    //                 }
+    //             }
+
+    //             img {
+    //                 @include media-breakpoint-between(sm, lg) {
+    //                     height: 18px;
+    //                 }
+    //             }
+
+    //             @include media-breakpoint-between(sm, lg) {
+    //                 height: 18px;
+    //                 cursor: pointer;
+    //             }
+    //         }
+
+    //         span {
+    //             flex-grow: 0;
+    //             font-family: 'Noto Sans KR';
+    //             font-size: 1.25rem;
+    //             font-weight: 500;
+    //             font-stretch: normal;
+    //             font-style: normal;
+    //             line-height: normal;
+    //             letter-spacing: -0.4px;
+    //             text-align: right;
+    //             color: #FFFFFF;
+
+    //             @include media-breakpoint-between(sm, lg) {
+    //                 font-size: 0.75rem;
+    //             }
+
+    //             @include media-breakpoint-between(xs, sm) {
+    //                 font-size: 16px;
+    //             }
+    //         }
+
+    //         .count-number {
+    //             padding-left: 1rem;
+    //             padding-right: 1rem;
+
+    //             .total {
+    //                 color: #cccccc;
+
+    //                 @include media-breakpoint-between(xs, sm) {
+    //                     padding-left: 0.07rem;
+    //                 }
+    //             }
+
+    //             @include media-breakpoint-between(xs, sm) {
+    //                 padding-left: 0.7rem;
+    //                 padding-right: 0.75rem;
+    //             }
+    //         }
+
+    //         @include media-breakpoint-between(xs, sm) {
+    //             // padding: 0.625rem 0rem;
+    //             width: 130px;
+    //             height: 36px;
+    //         }
+    //     }
+
+    //     @include media-breakpoint-between(xs, sm) {
+    //         padding-top: 54px;
+    //     }
+    // }
+  }
+
+  .pagination {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    // padding-left: 284px;
+    padding-top: 2.9vw;
+    position: absolute;
+    // top: 42.6%;
+    top: 70%;
+    z-index: 1;
+    // width: 100%;
+    margin-left: 40px;
+    @media (min-width: 1536px) {
+      // left: 12.5%;
+      width: 1200px;
+      margin-right: auto;
+      margin-left: auto;
+      left: 0;
+      right: 0;
+    }
+    .pagination-container {
+      display: flex;
+      // margin-left: 284px;
+      // margin-right: 284px;
+      margin-left: auto;
+      margin-right: auto;
+      // width: 1440px;
+      max-width: 1440px;
+
+      .paging-count {
+        width: 154.5px;
+        height: 44px;
+        border-radius: 100px;
+        background-color: rgba(0, 0, 0, 0.4);
+        flex-grow: 0;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        padding: 0.65rem 0.56rem 0.625rem;
+
+        button {
+          background: none;
+          border: 0;
+          padding: 0;
+          height: 24px;
+          cursor: pointer;
+          display: flex;
+          align-items: center;
+
+          .paging-count-svg {
+            color: #ffffff;
+
+            @include media-breakpoint-between(md, lg) {
+              height: 18px;
+            }
+
+            @include media-breakpoint-between(xs, md) {
+              color: #1c1c1c;
+              width: 17px;
+            }
+          }
+
+          @include media-breakpoint-between(md, lg) {
+            height: 18px;
+            cursor: pointer;
+          }
+        }
+
+        span {
+          flex-grow: 0;
+          font-family: 'Noto Sans KR';
+          font-size: 1.25rem;
+          font-weight: 500;
+          font-stretch: normal;
+          font-style: normal;
+          line-height: normal;
+          letter-spacing: -0.4px;
+          text-align: right;
+          color: #ffffff;
+
+          @include media-breakpoint-between(md, lg) {
+            font-size: 1rem;
+          }
+
+          @include media-breakpoint-between(xs, md) {
+            font-size: 16px;
+          }
+        }
+
+        .count-number {
+          padding-left: 1rem;
+          padding-right: 1rem;
+
+          .total {
+            color: #cccccc;
+
+            @include media-breakpoint-between(xs, md) {
+              padding-left: 0.07rem;
+            }
+          }
+
+          @include media-breakpoint-between(xs, md) {
+            padding-left: 0.7rem;
+            padding-right: 0.75rem;
+          }
+        }
+
+        @include media-breakpoint-between(xs, md) {
+          padding: 0.625rem 0rem;
+          width: 130px;
+          height: 36px;
+        }
+      }
+
+      @media (max-width: 1919px) {
+        margin-left: auto;
+        margin-right: auto;
+        padding-left: 12px;
+        padding-right: 12px;
+      }
+
+      @media (max-width: 1440px) {
+        margin: 0;
+      }
+
+      @include media-breakpoint-between(xs, md) {
+        padding-left: 0px;
+        padding-right: 0px;
+      }
+
+      // @media (min-width: 992px) and (max-width: 1919px) {
+      //     margin-left: 12.461%;
+      //     margin-right: 12.461%;
+      // }
+
+      // @media (min-width: 900px) and (max-width: 991px) {
+      //     margin-left: 4.714%;
+      //     margin-right: 4.714%;
+      // }
+    }
+
+    @include media-breakpoint-between(sm, md) {
+      padding-left: 2.25rem;
+      padding-top: 3.19rem;
+      top: 70%;
+      margin-left: 0;
+    }
+
+    // @include media-breakpoint-between(sm-400, sm) {
+    //   padding-left: 2.25rem;
+    //   padding-top: 2.19rem;
+    //   top: 45.1%;
+    //   margin-left: 0;
+    // }
+
+    // @include media-breakpoint-between(xs, sm-400) {
+    //   padding-left: 2.25rem;
+    //   padding-top: 1.19rem;
+    //   top: 45.1%;
+    //   margin-left: 0;
+    // }
+  }
+
+  // @include media-breakpoint-between(xl, xxl) {
+  //     height: 50rem;
+  // }
+
+  // @include media-breakpoint-between(lg, xl) {
+  //     height: 45rem;
+  // }
+
+  // @include media-breakpoint-between(sm, lg) {
+  //     height: 40rem;
+  // }
+
+  // @include media-breakpoint-between(xs, sm) {
+  //     // height: 23.25rem;
+  //     height: 23.2rem;
+  // }
+}
+
+.container {
+  position: relative;
+
+  .keyin-component {
+    width: 100%;
+    height: 13.75rem;
+    display: flex;
+    justify-content: space-between;
+    position: absolute;
+    top: -6.8rem;
+    z-index: 2;
+
+    .component {
+      height: 100%;
+      width: 21.75rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      text-align: center;
+      border-radius: 1.25rem;
+      background-color: #f5f7fb;
+      border: 0;
+      font-family: 'Noto Sans KR';
+      font-weight: 500;
+      font-stretch: normal;
+      font-style: normal;
+      line-height: normal;
+      letter-spacing: normal;
+      text-align: center;
+      color: #333333;
+      font-size: 1.5rem;
+      cursor: pointer;
+      padding-top: 1.9rem;
+
+      span {
+        // padding-top: 0.4rem;
+        // padding-top: 0.35rem;
+        padding-top: 0.3rem;
+        margin-left: -0.1rem;
+      }
+
+      img {
+        padding-left: 0.9rem;
+
+        @include media-breakpoint-between(md, lg) {
+          width: 75%;
+        }
+
+        @include media-breakpoint-between(xs, md) {
+          width: 48px;
+          padding-left: 0rem;
+        }
+      }
+
+      a {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+        text-align: center;
+      }
+
+      &:nth-child(1) {
+        padding-top: 1.9rem;
+
+        img {
+          // width: 49px;
+          // margin-left: 0.6rem;
+
+          @include media-breakpoint-between(xs, md) {
+            width: 49px;
+            // margin-left: 0.6rem;
+            margin-left: 0.55rem;
+          }
+        }
+
+        span {
+          margin-top: 0rem;
+          margin-left: -0.1rem;
+
+          @include media-breakpoint-between(xs, md) {
+            // margin-top: 0.08rem;
+            // margin-left: 0rem;
+            margin-top: 0.15rem;
+            margin-left: -0.2rem;
+            letter-spacing: -0.5px;
+          }
+        }
+
+        @include media-breakpoint-between(xs, md) {
+          padding-top: 1.2rem;
+        }
+      }
+
+      &:nth-child(2) {
+        padding-top: 2.35rem;
+
+        img {
+          padding-left: 1.2rem;
+          margin-top: -1px;
+
+          @include media-breakpoint-between(xs, md) {
+            // padding-left: 0.39rem;
+            padding-left: 0.3rem;
+          }
+        }
+
+        span {
+          @include media-breakpoint-between(xs, md) {
+            margin-top: 0.18rem;
+            margin-left: -0.1rem;
+          }
+        }
+
+        @include media-breakpoint-between(xs, md) {
+          padding-top: 1.55rem;
+        }
+      }
+
+      &:nth-child(3) {
+        img {
+          padding-left: 0rem;
+          margin-top: -1px;
+
+          @include media-breakpoint-between(xs, md) {
+            margin-top: 0px;
+          }
+        }
+
+        span {
+          @include media-breakpoint-between(xs, md) {
+            // margin-top: -0.01rem;
+            // margin-left: -0.05rem;
+            margin-top: 0.05rem;
+            margin-left: -0.15rem;
+          }
+        }
+
+        @include media-breakpoint-between(xs, md) {
+          padding-top: 1.35rem;
+        }
+      }
+
+      &:nth-child(4) {
+        img {
+          padding-left: 0rem;
+          margin-top: -1px;
+
+          @include media-breakpoint-between(xs, md) {
+            margin-top: 0px;
+          }
+        }
+
+        span {
+          @include media-breakpoint-between(xs, md) {
+            // margin-top: -0.1rem;
+            margin-left: -0.1rem;
+          }
+        }
+
+        @include media-breakpoint-between(xs, md) {
+          padding-top: 1.39rem;
+        }
+      }
+
+      @include media-breakpoint-between(xl, xxl) {
+        // width: 18rem;
+        width: calc(98% / 4);
+      }
+
+      @include media-breakpoint-between(lg, xl) {
+        width: calc(98% / 4);
+      }
+
+      @include media-breakpoint-between(md, lg) {
+        width: calc(98% / 4);
+        font-size: 1.25rem;
+      }
+
+      @include media-breakpoint-between(xs, md) {
+        // max-width: 10.25rem;
+        width: calc(97.62% / 2);
+        // width: 9.25rem;
+        height: 7.125rem;
+        // height: 51.82%;
+        // height: calc(100vw - 15.375rem);
+        border-radius: 0.625rem;
+        font-size: 1rem;
+        margin-bottom: 8px;
+      }
+
+      // @media (max-width: 352px) {
+      //     width: 9.25rem;
+      // }
+
+      // @media (max-width: 330px) {
+      //     width: 8.25rem;
+      // }
+
+      // @media (max-width: 298px) {
+      //     width: 7.25rem;
+      // }
+    }
+
+    @media (max-width: 1919px) {
+      padding-right: 12px;
+      padding-left: 12px;
+      left: 0;
+    }
+
+    @include media-breakpoint-between(md, lg) {
+      height: 11rem;
+    }
+
+    @include media-breakpoint-between(sm-400, md) {
+      gap: 8px;
+      height: auto;
+    }
+
+    // @include media-breakpoint-between(xs, sm-400) {
+    //     flex-wrap: wrap;
+    // }
+
+    @include media-breakpoint-between(xs, md) {
+      top: -1.7rem;
+      padding-left: 12px;
+      padding-right: 12px;
+      flex-wrap: wrap;
+    }
+
+    // @media (max-width: 352px) {
+    //     gap: 0 10px;
+    //     // justify-content: center;
+    // }
+  }
+
+  .keyin-info {
+    display: flex;
+    flex-direction: column;
+
+    .title {
+      width: 100%;
+      height: 6rem;
+      border-radius: 60px;
+      background-color: #fc5000;
+      display: flex;
+      align-items: center;
+      // margin-top: 10.8rem;
+      margin-top: 10.7rem;
+      padding: 1.375rem 2.563rem 1.375rem 2.81rem;
+      // justify-content: space-between;
+      position: relative;
+
+      hr {
+        width: 0.063rem;
+        height: 3.25rem;
+        // margin: 0 2.438rem 0 3.125rem;
+        flex-grow: 0;
+        background-color: rgba(255, 255, 255, 0.5);
+        border-right-width: 0;
+        -webkit-flex-shrink: 0;
+        -ms-flex-negative: 0;
+        flex-shrink: 0;
+        border-width: 0;
+        margin-left: 50px;
+
+        @include media-breakpoint-between(md, lg) {
+          margin-left: 0.75rem;
+          height: 1.25rem;
+        }
+
+        @include media-breakpoint-between(lg, xl) {
+          margin-left: 1.25rem;
+        }
+      }
+
+      .badge {
+        width: auto;
+        margin: 0;
+        flex-grow: 0;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        width: 46.1%;
+        // width: 46.2%;
+        height: 2.25rem;
+        gap: 12px;
+        border-radius: 60px;
+        background-color: #fc5000;
+        vertical-align: middle;
+        flex: 0 0 auto;
+
+        a {
+          width: 100%;
+          display: flex;
+          align-items: center;
+          // gap: 12px;
+          // gap: 13px;
+          gap: 10px;
+        }
+
+        .text {
+          font-family: 'Noto Sans KR';
+          font-weight: bold;
+          font-stretch: normal;
+          font-style: normal;
+          line-height: normal;
+          letter-spacing: normal;
+          text-align: left;
+          color: #ffffff;
+          font-size: 1.75rem;
+          margin-top: -0.3rem;
+
+          @include media-breakpoint-between(lg, xl) {
+            font-size: 1.25rem;
+          }
+
+          @include media-breakpoint-between(md, lg) {
+            // font-size: 0.75rem;
+            font-size: 1.25rem;
+          }
+        }
+
+        .keyin-ellipse {
+          // width: 1.7rem;
+          // height: 1.7rem;
+          flex-grow: 0;
+          // border-radius: 18px;
+          // background-image: linear-gradient(147deg, #fff278 7%, #ffd232 94%);
+          flex-grow: 0;
+          font-size: 1.5rem;
+          font-weight: bold;
+          font-stretch: normal;
+          font-style: normal;
+          line-height: normal;
+          letter-spacing: normal;
+          text-align: center;
+          color: #fc5000;
+          // margin-left: 0.2rem;
+          display: flex;
+          align-items: flex-end;
+          justify-content: center;
+          // line-height: 1.2 !important;
+        }
+
+        .code {
+          font-stretch: normal;
+          font-style: normal;
+          line-height: normal;
+          letter-spacing: normal;
+          text-align: right;
+          color: #ffffff;
+          display: flex;
+          align-items: center;
+          padding-left: 5.75rem;
+          flex-grow: 1;
+          justify-content: flex-end;
+
+          .number {
+            font-family: 'Noto Sans KR';
+            font-weight: bold;
+            font-size: 2.75rem;
+            margin-top: -1px;
+
+            @include media-breakpoint-between(lg, xl) {
+              font-size: 2rem;
+            }
+
+            @include media-breakpoint-between(md, lg) {
+              // font-size: 1.25rem;
+              font-size: 1.75rem;
+            }
+          }
+
+          @include media-breakpoint-between(lg, xl) {
+            padding-left: 0rem;
+          }
+
+          @include media-breakpoint-between(md, lg) {
+            padding-left: 1.75rem;
+          }
+        }
+
+        // @include media-breakpoint-between(xl, xxl) {
+        //     width: 41%;
+        // }
+
+        @include media-breakpoint-between(lg, xl) {
+          width: 45%;
+        }
+
+        @include media-breakpoint-between(md, lg) {
+          width: 45%;
+        }
+      }
+
+      .total {
+        font-stretch: normal;
+        font-style: normal;
+        line-height: normal;
+        letter-spacing: normal;
+        text-align: right;
+        color: #ffffff;
+        display: flex;
+        align-items: center;
+        width: 50%;
+        padding-left: 39px;
+        flex: 0 0 auto;
+
+        .code-text {
+          font-stretch: normal;
+          font-style: normal;
+          line-height: normal;
+          letter-spacing: normal;
+          // text-align: right;
+          text-align: left;
+          color: #ffffff;
+          display: flex;
+          align-items: center;
+          flex-grow: 1;
+
+          .text {
+            font-family: 'Noto Sans KR';
+            font-weight: 500;
+            font-size: 1.75rem;
+            // margin-top: -0.15rem;
+            margin-top: -0.2rem;
+
+            @include media-breakpoint-between(lg, xl) {
+              // font-size: 1.25rem;
+              font-size: 1.25rem;
+            }
+
+            @include media-breakpoint-between(md, lg) {
+              // font-size: 0.75rem;
+              font-size: 1.25rem;
+            }
+          }
+        }
+
+        // .referral-code {
+        //     // width: 35%;
+        //     // width: 50%;
+        //     // white-space: nowrap;
+        //     // overflow: hidden;
+        //     // text-overflow: ellipsis;
+        // }
+
+        span {
+          font-family: 'Noto Sans KR';
+          font-weight: normal;
+          font-size: 2.75rem;
+          margin-top: -1px;
+
+          @include media-breakpoint-between(lg, xl) {
+            font-size: 2rem;
+          }
+
+          @include media-breakpoint-between(md, lg) {
+            // font-size: 1.25rem;
+            font-size: 1.75rem;
+          }
+        }
+
+        button {
+          font-family: 'Noto Sans KR';
+          font-weight: 500;
+          font-size: 1.125rem;
+          width: 136px;
+          height: 36px;
+          // margin: 6px 0 8px 20px;
+          margin: 7px 0 8px 20px;
+          border-radius: 60px;
+          background-color: #fd7333;
+          color: #ffffff;
+          border: 0;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          padding-left: 8px;
+          padding-top: 0;
+          cursor: pointer;
+
+          img {
+            margin-left: 0px;
+
+            @include media-breakpoint-between(md, lg) {
+              width: 24px;
+            }
+          }
+
+          @include media-breakpoint-between(md, lg) {
+            font-size: 0.75rem;
+            width: 100px;
+            height: 30px;
+            cursor: pointer;
+          }
+        }
+
+        // @include media-breakpoint-between(xl, xxl) {
+        //     width: 55%;
+        // }
+
+        @include media-breakpoint-between(lg, xl) {
+          padding-left: 1.25rem;
+          width: 55%;
+        }
+
+        @include media-breakpoint-between(md, lg) {
+          padding-left: 0.75rem;
+          width: 55%;
+        }
+      }
+
+      .popover-share {
+        width: 460px;
+        height: 304px;
+        flex-grow: 0;
+        right: 42px;
+        top: 86px;
+        padding: 40px 42px 60px 33px;
+        border-radius: 10px;
+        box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.1);
+        border: solid 1px #000;
+        background-color: #f5f7fb;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+        padding-bottom: 42px;
+        position: absolute;
+        z-index: 2;
+
+        .popover-header {
+          display: flex;
+          width: 100%;
+          justify-content: flex-end;
+        }
+
+        .popover-title {
+          // margin-top: -1.15rem;
+          margin-top: -0.5rem;
+          padding-left: 6px;
+        }
+
+        span {
+          font-family: 'Noto Sans KR';
+          font-size: 32px;
+          font-weight: 500;
+          font-stretch: normal;
+          font-style: normal;
+          line-height: normal;
+          letter-spacing: normal;
+          text-align: left;
+          color: #000;
+        }
+
+        .action-share {
+          display: flex;
+          padding-top: 39.5px;
+          width: 100%;
+          justify-content: flex-start;
+
+          div {
+            flex: 0 0 auto;
+            width: 50%;
+
+            button {
+              display: flex;
+              flex-direction: column;
+              align-items: center;
+              border: 0;
+              background: none;
+              cursor: pointer;
+
+              // img {
+              //     width: 79.8px;
+              // }
+
+              span {
+                font-family: 'Noto Sans KR';
+                font-size: 20px;
+                font-weight: normal;
+                font-stretch: normal;
+                font-style: normal;
+                line-height: normal;
+                letter-spacing: normal;
+                text-align: left;
+                color: #000;
+                padding-top: 2.7px;
+              }
+            }
+
+            .kakaotalk {
+              padding-left: 79px;
+            }
+
+            .link {
+              padding-left: 32px;
+              padding-top: 7px;
+
+              span {
+                padding-top: 9.7px;
+              }
+
+              @include media-breakpoint-between(xs, md) {
+                margin-left: 0;
+              }
+            }
+          }
+        }
+      }
+
+      @include media-breakpoint-between(lg, xl) {
+        position: relative;
+      }
+
+      @include media-breakpoint-between(xs, md) {
+        display: none;
+      }
+    }
+
+    .title-mobile {
+      display: none;
+      margin-top: 14.25rem;
+      width: 100%;
+      height: 3.5rem;
+      border-radius: 60px;
+      background-color: #fc5000;
+      align-items: center;
+      padding: 16px 24px 17px;
+      justify-content: space-between;
+
+      a {
+        display: flex;
+        align-items: center;
+        width: 100%;
+        justify-content: space-between;
+      }
+
+      .badge {
+        width: auto;
+        margin: 0;
+        margin-top: -0.2rem;
+
+        .text {
+          font-family: 'Noto Sans KR';
+          font-weight: bold;
+          font-stretch: normal;
+          font-style: normal;
+          line-height: normal;
+          letter-spacing: normal;
+          text-align: left;
+          color: #ffffff;
+          font-size: 1rem;
+          letter-spacing: -0.01rem;
+        }
+      }
+
+      .code {
+        font-stretch: normal;
+        font-style: normal;
+        line-height: normal;
+        letter-spacing: normal;
+        text-align: right;
+        color: #ffffff;
+        display: flex;
+        align-items: center;
+
+        .number {
+          font-family: 'Noto Sans KR';
+          font-weight: bold;
+          font-size: 1.375rem;
+        }
+
+        .keyin-ellipse {
+          // width: 1.313rem;
+          // height: 1.313rem;
+          width: 24px;
+          height: 24px;
+          flex-grow: 0;
+          border-radius: 18px;
+          // background-image: linear-gradient(147deg, #fff278 7%, #ffd232 94%);
+          flex-grow: 0;
+          font-size: 1rem;
+          font-weight: bold;
+          font-stretch: normal;
+          font-style: normal;
+          line-height: normal;
+          letter-spacing: normal;
+          text-align: center;
+          color: #fc5000;
+          // margin-left: 0.313rem;
+          margin-left: 0.2rem;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          // line-height: 1.2 !important;
+        }
+      }
+
+      // @include media-breakpoint-between(sm-400, md) {
+      //     display: flex;
+      //     // margin-top: 5.25rem;
+      //     padding: 18px 24px 17px 23px;
+      // }
+
+      @include media-breakpoint-between(xs, md) {
+        display: flex;
+        padding: 18px 24px 17px 23px;
+      }
+    }
+
+    .total-mobile {
+      display: none;
+      margin-top: 0.4rem;
+      width: 100%;
+      height: 3.5rem;
+      align-items: center;
+      padding: 18.5px 24px 17px 23px;
+      justify-content: space-between;
+
+      .badge {
+        width: auto;
+        margin: 0;
+
+        .text {
+          font-family: 'Noto Sans KR';
+          font-weight: bold;
+          font-stretch: normal;
+          font-style: normal;
+          line-height: normal;
+          letter-spacing: normal;
+          text-align: left;
+          color: #333333;
+          font-size: 1rem;
+          letter-spacing: -0.02rem;
+        }
+      }
+
+      .code {
+        font-stretch: normal;
+        font-style: normal;
+        line-height: normal;
+        letter-spacing: normal;
+        text-align: right;
+        color: rgba(0, 0, 0, 0.5);
+        display: flex;
+        align-items: center;
+        font-size: 1.125rem;
+        font-family: 'Noto Sans KR';
+
+        span {
+          font-family: 'Noto Sans KR';
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          max-width: 30vw;
+        }
+
+        button {
+          border-radius: 60px;
+          background: none;
+          color: #ffffff;
+          border: 0;
+          padding: 0px;
+          margin-left: 0.4rem;
+          margin-top: 0rem;
+          cursor: pointer;
+        }
+      }
+
+      @include media-breakpoint-between(xs, md) {
+        display: flex;
+      }
+    }
+
+    .keyin-as {
+      font-family: 'Noto Sans KR';
+      font-size: 2rem;
+      font-weight: 500;
+      font-stretch: normal;
+      font-style: normal;
+      line-height: normal;
+      letter-spacing: normal;
+      text-align: left;
+      color: #000000;
+      display: flex;
+      align-items: center;
+      // margin-top: 7.3rem;
+      // padding-left: 2.75rem;
+      margin-top: 7.29rem;
+      padding-left: 2.7rem;
+
+      img {
+        padding-left: 0.4rem;
+        padding-top: 0.15rem;
+
+        @include media-breakpoint-between(xs, md) {
+          height: 29px;
+          padding-left: 0.3rem;
+        }
+      }
+
+      span {
+        @include media-breakpoint-between(xs, md) {
+          letter-spacing: -0.01rem;
+        }
+      }
+
+      @include media-breakpoint-between(lg, xl) {
+        font-size: 1.75rem;
+        margin-top: 5.29rem;
+      }
+
+      @include media-breakpoint-between(md, lg) {
+        font-size: 1.25rem;
+        margin-top: 3.29rem;
+      }
+
+      @include media-breakpoint-between(xs, md) {
+        // padding-left: 10.5px;
+        padding-left: 12px;
+        margin-top: 3.8rem;
+        font-size: 22px;
+      }
+    }
+
+    .keyin-tag {
+      display: flex;
+      align-items: center;
+      width: 100%;
+      height: 6rem;
+      justify-content: space-between;
+      margin-top: 1.4rem;
+
+      button {
+        height: 100%;
+        display: flex;
+        align-items: center;
+        font-family: 'Noto Sans KR';
+        font-size: 1.5rem;
+        font-weight: 500;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: normal;
+        letter-spacing: -0.48px;
+        text-align: left;
+        cursor: pointer;
+
+        span {
+          .number {
+            font-family: 'Noto Sans KR';
+            font-size: 2.25rem;
+
+            @include media-breakpoint-between(lg, xl) {
+              font-size: 2rem;
+            }
+
+            @include media-breakpoint-between(md, lg) {
+              font-size: 1.25rem;
+            }
+
+            @include media-breakpoint-between(xs, md) {
+              margin-right: 8px;
+              font-size: 22px;
+            }
+          }
+
+          &:nth-child(1) {
+            flex-grow: 1;
+            margin-top: -0.2rem;
+
+            @include media-breakpoint-between(xs, md) {
+              font-size: 16px;
+            }
+          }
+
+          &:nth-child(3) {
+            margin-top: -0.3rem;
+
+            @include media-breakpoint-between(xs, md) {
+              font-size: 16px;
+              margin-top: -0.2rem;
+            }
+          }
+        }
+
+        @include media-breakpoint-between(lg, xl) {
+          font-size: 1.25rem;
+          cursor: pointer;
+        }
+
+        @include media-breakpoint-between(md, lg) {
+          font-size: 1rem;
+          cursor: pointer;
+        }
+
+        @include media-breakpoint-between(xs, md) {
+          width: 100%;
+          height: 3.5rem;
+          display: flex;
+          justify-content: center;
+          padding: 22px 24px 22px 23px;
+          font-size: 16px;
+          cursor: pointer;
+        }
+      }
+
+      .tag-app {
+        border-radius: 100px;
+        border: solid 1px #333;
+        background-color: #1c1c1c;
+        flex-grow: 0;
+        // width: 40.625rem;
+        width: 40.62rem;
+        // -webkit-text-stroke: 1px #333;
+        color: #ffffff;
+        padding-left: 4.3rem;
+        padding-right: 4.319rem;
+
+        span {
+          .number {
+            padding-right: 0.8rem;
+
+            @include media-breakpoint-between(xs, md) {
+              padding-right: 0.1rem;
+              font-size: 22px;
+            }
+          }
+
+          &:nth-child(2) {
+            @include media-breakpoint-between(xs, md) {
+              margin-top: 0rem;
+              margin-left: 0rem;
+            }
+          }
+        }
+
+        @include media-breakpoint-between(xl, xxl) {
+          width: 46.099%;
+        }
+
+        @include media-breakpoint-between(lg, xl) {
+          // width: 20rem;
+          width: 46.099%;
+        }
+
+        @include media-breakpoint-between(md, lg) {
+          width: 46.099%;
+          padding-left: 1.319rem;
+          padding-right: 1.319rem;
+        }
+
+        @include media-breakpoint-between(xs, md) {
+          width: 100%;
+          padding: 23px 24px 22px 23px;
+          letter-spacing: -0.3px;
+        }
+      }
+
+      .tag-action-result {
+        border-radius: 100px;
+        border: solid 2px #333;
+        width: 23.75rem;
+        background: none;
+        padding-left: 2.1rem;
+        padding-right: 2.19rem;
+
+        span {
+          .number {
+            @include media-breakpoint-between(xs, md) {
+              margin-right: 5px;
+              font-size: 22px;
+            }
+          }
+
+          &:nth-child(1) {
+            flex-grow: 1;
+          }
+
+          &:nth-child(2) {
+            // margin-top: -0.12em;
+            margin-top: 0;
+
+            @include media-breakpoint-between(xs, md) {
+              margin-top: -0.12em;
+            }
+          }
+
+          &:nth-child(3) {
+            margin-left: 0.25rem;
+
+            @include media-breakpoint-between(xs, md) {
+              margin-top: -0.2rem;
+            }
+          }
+        }
+
+        @include media-breakpoint-between(xl, xxl) {
+          width: 25.95%;
+        }
+
+        @include media-breakpoint-between(lg, xl) {
+          width: 25.95%;
+        }
+
+        @include media-breakpoint-between(md, lg) {
+          width: 25.95%;
+          padding-left: 1.319rem;
+          padding-right: 1.319rem;
+        }
+
+        @include media-breakpoint-between(xs, md) {
+          width: 100%;
+          padding: 22px 23px 22px 22px;
+          margin-top: 12px;
+          letter-spacing: -0.35px;
+        }
+      }
+
+      .tag-as-action {
+        border-radius: 100px;
+        border: solid 2px #333;
+        width: 23.75rem;
+        background: none;
+        // padding-left: 2.2rem;
+        // padding-right: 2.2rem;
+        padding-left: 2.1rem;
+        padding-right: 2.25rem;
+
+        span {
+          .number {
+            @include media-breakpoint-between(xs, md) {
+              margin-right: 5px;
+              font-size: 22px;
+            }
+          }
+
+          &:nth-child(2) {
+            @include media-breakpoint-between(xs, md) {
+              margin-right: 0rem;
+            }
+          }
+
+          &:nth-child(3) {
+            margin-left: 0.2rem;
+          }
+        }
+
+        @include media-breakpoint-between(xl, xxl) {
+          width: 25.95%;
+        }
+
+        @include media-breakpoint-between(lg, xl) {
+          width: 25.95%;
+        }
+
+        @include media-breakpoint-between(md, lg) {
+          width: 25.95%;
+          padding-left: 1.319rem;
+          padding-right: 1.319rem;
+        }
+
+        @include media-breakpoint-between(xs, md) {
+          width: 100%;
+          padding: 22px 23px 22px 21.5px;
+          margin-top: 12px;
+          letter-spacing: -0.35px;
+        }
+      }
+
+      @include media-breakpoint-between(md, lg) {
+        height: 4rem;
+        gap: 5px;
+      }
+
+      @include media-breakpoint-between(xs, md) {
+        margin-top: 0.9rem;
+        display: flex;
+        flex-direction: column;
+        height: auto;
+      }
+    }
+
+    .keyin-partner-status {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+      padding-left: 2.75rem;
+      // padding-right: 1.9rem;
+      padding-right: 2.15rem;
+      // padding-top: 7.2rem;
+      padding-top: 7.25rem;
+
+      .status {
+        width: 50%;
+        font-family: 'Noto Sans KR';
+        font-size: 2rem;
+        font-weight: 500;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: normal;
+        letter-spacing: normal;
+        text-align: left;
+        color: #000000;
+        display: flex;
+        align-items: center;
+
+        img {
+          padding-left: 0.5rem;
+          padding-top: 0.25rem;
+
+          @include media-breakpoint-between(xs, md) {
+            height: 29px;
+            padding-left: 0.35rem;
+            padding-top: 0.18rem;
+          }
+        }
+
+        @include media-breakpoint-between(lg, xl) {
+          font-size: 1.75rem;
+        }
+
+        @include media-breakpoint-between(md, lg) {
+          font-size: 1.25rem;
+        }
+
+        @include media-breakpoint-between(xs, md) {
+          letter-spacing: -0.025rem;
+          font-size: 22px;
+        }
+      }
+
+      .view {
+        font-family: 'Noto Sans KR';
+        font-size: 1.125rem;
+        font-weight: normal;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: normal;
+        letter-spacing: normal;
+        text-align: left;
+        color: #333333;
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+        border: 0;
+        background: none;
+        // padding-top: 0.35rem;
+        padding-top: 0.3rem;
+        padding-right: 0;
+        padding-left: 0;
+        padding-bottom: 0;
+
+        img {
+          padding-left: 0.3rem;
+          margin-left: 1px;
+          width: 24px;
+
+          @include media-breakpoint-between(md, lg) {
+            height: 18px;
+          }
+
+          @include media-breakpoint-between(xs, md) {
+            // height: 25px;
+            height: 22px;
+            width: auto;
+            padding-left: 0.2rem;
+            padding-top: 0.15rem;
+            margin-left: 0px;
+          }
+        }
+
+        @include media-breakpoint-between(md, lg) {
+          font-size: 0.9rem;
+        }
+
+        @include media-breakpoint-between(xs, md) {
+          font-size: 1rem;
+          // padding-top: 0.1rem;
+          padding-top: 0.15rem;
+        }
+      }
+
+      @include media-breakpoint-between(lg, xl) {
+        padding-top: 5.25rem;
+      }
+
+      @include media-breakpoint-between(md, lg) {
+        padding-top: 3.25rem;
+      }
+
+      @include media-breakpoint-between(xs, md) {
+        font-size: 22px;
+        // padding-left: 11.5px;
+        padding-left: 12px;
+        margin-top: 2.46rem;
+        // padding-right: 5px;
+        padding-right: 7px;
+        padding-top: 0.3rem;
+      }
+    }
+
+    .keyin-list {
+      display: flex;
+      flex-direction: column;
+      border-radius: 10px;
+      background-color: #f5f7fb;
+      width: 100%;
+      // height: 24.063rem;
+      margin-top: 1.9rem;
+      padding: 2.8rem 8rem 4rem 8.55rem;
+
+      .header {
+        display: flex;
+        width: 100%;
+        font-family: 'Noto Sans KR';
+        font-size: 1.5rem;
+        font-weight: 500;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: normal;
+        letter-spacing: normal;
+        color: #333;
+
+        .company {
+          text-align: left;
+          flex: 0 0 auto;
+          width: 33.33333333%;
+        }
+
+        .representative {
+          text-align: center;
+          flex: 0 0 auto;
+          width: 33.33333333%;
+          margin-left: -1px;
+
+          @include media-breakpoint-between(xs, md) {
+            margin-left: -0.02rem;
+          }
+        }
+
+        .performance {
+          text-align: right;
+          flex: 0 0 auto;
+          width: 33.33333333%;
+          margin-left: -1px;
+        }
+
+        @include media-breakpoint-between(lg, xl) {
+          font-size: 1.25rem;
+        }
+
+        @include media-breakpoint-between(md, lg) {
+          font-size: 1rem;
+        }
+
+        @include media-breakpoint-between(xs, md) {
+          font-size: 0.75rem;
+        }
+      }
+
+      hr {
+        width: 100%;
+        height: 1px;
+        background-color: #d9d9d9;
+        border-right-width: 0;
+        -webkit-flex-shrink: 0;
+        -ms-flex-negative: 0;
+        flex-shrink: 0;
+        border-width: 0;
+        // margin: 2rem 0.125rem 1.6rem 0;
+        margin: 2.1rem 0.125rem 1.5rem 0;
+
+        @include media-breakpoint-between(xs, md) {
+          margin: 0.9rem 0.125rem 1.2rem 0;
+        }
+      }
+
+      .body {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        width: 100%;
+        font-family: 'Noto Sans KR';
+        font-size: 1.75rem;
+        font-weight: 500;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: normal;
+        letter-spacing: normal;
+        color: #333;
+
+        .info {
+          width: 100%;
+          display: flex;
+
+          .company {
+            text-align: left;
+            flex: 0 0 auto;
+            width: 33.33333333%;
+            white-space: nowrap;
+            // overflow: hidden;
+            text-overflow: ellipsis;
+
+            @include media-breakpoint-between(md, lg) {
+              overflow: hidden;
+            }
+
+            @include media-breakpoint-between(xs, md) {
+              overflow: hidden;
+            }
+          }
+
+          .representative {
+            font-weight: normal;
+            text-align: center;
+            flex: 0 0 auto;
+            width: 33.33333333%;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            margin-left: -1px;
+          }
+
+          .performance {
+            font-family: 'Noto Sans KR';
+            text-align: right;
+            flex: 0 0 auto;
+            width: 33.33333333%;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            margin-left: -1px;
+
+            span {
+              font-family: 'Noto Sans KR';
+            }
+
+            @include media-breakpoint-between(xs, md) {
+              margin-left: 0px;
+            }
+          }
+
+          &:nth-child(3) {
+            .performance {
+              @include media-breakpoint-between(xs, md) {
+                margin-top: 0.1rem;
+              }
+            }
+          }
+
+          &:nth-child(5) {
+            .company {
+              @include media-breakpoint-between(xs, md) {
+                letter-spacing: -0.01rem;
+              }
+            }
+
+            .performance {
+              @include media-breakpoint-between(xs, md) {
+                margin-top: 0.1rem;
+              }
+            }
+          }
+        }
+
+        hr {
+          // margin: 24.9px 2px 25.5px 0;
+          margin: 24.9px 2px 24.5px 0;
+
+          &:nth-child(4) {
+            margin-bottom: 24px;
+
+            @include media-breakpoint-between(xs, md) {
+              margin-bottom: 18.5px;
+            }
+          }
+
+          @include media-breakpoint-between(xs, md) {
+            margin: 1.2rem 0.125rem 1.11rem 0;
+          }
+        }
+
+        @include media-breakpoint-between(lg, xl) {
+          font-size: 1.5rem;
+        }
+
+        @include media-breakpoint-between(sm, lg) {
+          font-size: 1.25rem;
+        }
+
+        @include media-breakpoint-between(xs, md) {
+          font-size: 0.75rem;
+        }
+      }
+
+      @include media-breakpoint-between(lg, xl) {
+        padding: 3.125rem 5.25rem 4.313rem;
+      }
+
+      @include media-breakpoint-between(md, lg) {
+        padding: 3.125rem 3.25rem 4.313rem;
+      }
+
+      @include media-breakpoint-between(xs, md) {
+        margin-top: 1.05rem;
+        padding: 1.9rem 1.5rem 1.7rem 1.45rem;
+      }
+    }
+
+    .keyin-best {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+      // padding-left: 2.563rem;
+      // padding-right: 2.5rem;
+      // padding-top: 9.8rem;
+      padding-left: 2.48rem;
+      padding-right: 2.7rem;
+      padding-top: 9.84rem;
+
+      .status {
+        width: 50%;
+        font-family: 'Noto Sans KR';
+        font-size: 2rem;
+        font-weight: 500;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: normal;
+        letter-spacing: normal;
+        text-align: left;
+        color: #000000;
+        display: flex;
+        align-items: center;
+
+        img {
+          padding-left: 0.5rem;
+          padding-top: 0.2rem;
+
+          @include media-breakpoint-between(xs, md) {
+            height: 29px;
+            padding-left: 0.4rem;
+            // padding-top: 0.18rem;
+            padding-top: 0.1rem;
+          }
+        }
+
+        span {
+          span {
+            font-weight: 500;
+          }
+
+          @include media-breakpoint-between(lg, xl) {
+            font-size: 1.75rem;
+          }
+
+          @include media-breakpoint-between(xs, md) {
+            letter-spacing: -0.025rem;
+            font-size: 22px;
+          }
+        }
+
+        @include media-breakpoint-between(lg, xl) {
+          font-size: 1.75rem;
+        }
+
+        @include media-breakpoint-between(md, lg) {
+          font-size: 1.25rem;
+        }
+      }
+
+      .view {
+        font-family: 'Noto Sans KR';
+        font-size: 1.125rem;
+        font-weight: normal;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: normal;
+        letter-spacing: normal;
+        text-align: left;
+        color: #333333;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        width: 50%;
+        cursor: pointer;
+        border: 0;
+        background: none;
+        padding: 0;
+
+        img {
+          padding-left: 0.3rem;
+          // padding-top: 0.2rem;
+          // padding-top: 0.25rem;
+          padding-top: 2px;
+          width: 24px;
+          margin-left: 1px;
+
+          @include media-breakpoint-between(md, lg) {
+            height: 18px;
+          }
+
+          @include media-breakpoint-between(xs, md) {
+            height: 18px;
+            width: auto;
+            padding-left: 0.2rem;
+            padding-top: 0rem;
+          }
+        }
+
+        a {
+          display: flex;
+          align-items: center;
+        }
+
+        @include media-breakpoint-between(md, lg) {
+          font-size: 0.9rem;
+        }
+
+        @include media-breakpoint-between(xs, md) {
+          font-size: 1rem;
+          padding-top: 0.1rem;
+        }
+      }
+
+      @include media-breakpoint-between(lg, xl) {
+        padding-top: 7.84rem;
+      }
+
+      @include media-breakpoint-between(md, lg) {
+        padding-top: 5.84rem;
+      }
+
+      @include media-breakpoint-between(xs, md) {
+        font-size: 22px;
+        // padding-left: 11px;
+        padding-left: 12px;
+        margin-top: 4.5rem;
+        // padding-right: 5px;
+        padding-right: 7px;
+        // padding-top: 3.15rem;
+        padding-top: 3.18rem;
+
+        margin: 0;
+      }
+    }
+
+    .keyin-list-best {
+      padding-top: 2rem;
+      // padding-bottom: 10rem;
+      padding-bottom: 9.8rem;
+
+      &::-webkit-scrollbar {
+        @include media-breakpoint-between(xs, md) {
+          display: none;
+        }
+      }
+
+      .card {
+        display: flex;
+        flex-direction: column;
+        border-radius: 10px;
+        border: solid 1px rgba(0, 0, 0, 0.2);
+        background-color: #fff;
+        padding: 5px 5px 40px 4px;
+
+        a {
+          display: flex;
+          flex-direction: column;
+        }
+
+        img {
+          border-radius: 10px;
+          width: 21.125rem;
+          height: 21.125rem;
+          aspect-ratio: 1/1;
+          // Fallback
+          @supports not (aspect-ratio: 1/1) {
+            &::before {
+              float: left;
+              padding-top: 100%;
+              content: '';
+            }
+
+            &::after {
+              display: block;
+              content: '';
+              clear: both;
+            }
+          }
+
+          @include media-breakpoint-between(lg, xxl) {
+            height: auto;
+            // width: 12.125rem;
+            width: 100%;
+          }
+
+          @include media-breakpoint-between(md, lg) {
+            height: auto;
+            // width: 12.125rem;
+            width: 100%;
+          }
+
+          @include media-breakpoint-between(xs, md) {
+            height: auto;
+            width: auto;
+            border-radius: 4px;
+          }
+        }
+
+        .products-info {
+          width: 21.125rem;
+          padding-top: 22px;
+          padding-left: 27px;
+          padding-right: 24px;
+          font-family: 'Noto Sans KR';
+          font-weight: normal;
+          font-stretch: normal;
+          font-style: normal;
+          line-height: normal;
+          letter-spacing: normal;
+          text-align: left;
+          color: #333333;
+          font-size: 18px;
+
+          .info {
+            margin-bottom: 0.6rem;
+            line-height: 1.4 !important;
+            padding-right: 1.2rem;
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+            -webkit-line-clamp: 2;
+            overflow: hidden;
+            height: 2em;
+
+            > span {
+              /* white-space: nowrap; */
+              overflow: hidden;
+              text-overflow: ellipsis;
+              display: -webkit-box;
+              -webkit-box-orient: vertical;
+              -webkit-line-clamp: 2;
+            }
+
+            @include media-breakpoint-between(xs, md) {
+              letter-spacing: -0.28px;
+              font-size: 14px;
+              margin-bottom: 0.6rem;
+              padding-right: 0;
+              line-height: 1.41 !important;
+            }
+          }
+
+          .number {
+            font-family: 'Noto Sans KR';
+            font-size: 1.5rem;
+            font-weight: 500;
+            font-stretch: normal;
+            font-style: normal;
+            line-height: normal;
+            letter-spacing: normal;
+            text-align: left;
+            color: #333333;
+
+            span {
+              font-family: 'Noto Sans KR';
+              font-weight: normal;
+            }
+
+            @include media-breakpoint-between(lg, xl) {
+              font-size: 1.25rem;
+            }
+
+            @include media-breakpoint-between(xs, md) {
+              font-size: 1rem;
+            }
+          }
+
+          hr {
+            width: 100%;
+            height: 1px;
+            flex-grow: 0;
+            background-color: #d9d9d9;
+            border-right-width: 0;
+            -webkit-flex-shrink: 0;
+            -ms-flex-negative: 0;
+            flex-shrink: 0;
+            border-width: 0;
+            margin: 1rem 0 1rem 0;
+
+            @include media-breakpoint-between(xs, md) {
+              // margin: 0.4rem 0 0.36rem 0;
+              margin: 0.57rem 0 0.55rem 0;
+            }
+          }
+
+          .products-desc {
+            flex-grow: 0;
+            font-family: 'Noto Sans KR';
+            font-size: 1.25rem;
+            font-weight: normal;
+            font-stretch: normal;
+            font-style: normal;
+            line-height: normal;
+            letter-spacing: normal;
+            text-align: left;
+            color: #1db8b9;
+            margin-left: 0rem;
+
+            .number {
+              font-family: 'Noto Sans KR';
+              font-weight: bold;
+              color: #1db8b9;
+              font-size: 1.25rem;
+
+              @include media-breakpoint-between(md, xl) {
+                font-size: 1rem;
+              }
+
+              @include media-breakpoint-between(xs, md) {
+                font-size: 1rem;
+                margin-left: 0rem;
+              }
+            }
+
+            .percent {
+              font-weight: bold;
+              font-size: 1.25rem;
+
+              @include media-breakpoint-between(md, xl) {
+                font-size: 1rem;
+              }
+
+              @include media-breakpoint-between(xs, md) {
+                font-size: 1rem;
+              }
+            }
+
+            .cost {
+              font-family: 'Noto Sans KR';
+              font-weight: bold;
+              color: #1db8b9;
+              margin-left: 0.85rem;
+              font-size: 1.25rem;
+
+              @include media-breakpoint-between(md, xl) {
+                font-size: 1rem;
+                margin-left: 0.2rem;
+              }
+
+              @include media-breakpoint-between(xs, md) {
+                font-size: 1rem;
+                margin-left: 0.65rem;
+              }
+            }
+
+            @include media-breakpoint-between(md, xl) {
+              font-size: 1rem;
+            }
+
+            @include media-breakpoint-between(xs, md) {
+              font-size: 1rem;
+            }
+          }
+
+          // @include media-breakpoint-between(lg, xl) {
+          //     // width: 8.125rem;
+          //     // padding-top: 7.5px;
+          //     // padding-left: 1px;
+          //     // padding-right: 1px;
+          // }
+
+          @include media-breakpoint-between(lg, xxl) {
+            font-size: 14px;
+            // width: 12.125rem;
+            width: 100%;
+            padding-top: 15px;
+            padding-left: 10px;
+            padding-right: 10px;
+          }
+
+          @include media-breakpoint-between(md, lg) {
+            // width: 12.125rem;
+            width: 100%;
+            padding-top: 15px;
+            padding-left: 10px;
+            padding-right: 10px;
+          }
+
+          @include media-breakpoint-between(sm-400, md) {
+            width: 100%;
+            padding-top: 8px;
+            padding-left: 4.2px;
+            padding-right: 1px;
+            font-size: 0.875rem;
+          }
+
+          @include media-breakpoint-between(xs, sm-400) {
+            width: 9.2rem;
+            padding-top: 8px;
+            padding-left: 4.2px;
+            padding-right: 1px;
+            font-size: 0.875rem;
+          }
+        }
+
+        @include media-breakpoint-between(xs, md) {
+          flex: 0 0 auto;
+          padding: 4px 5px 12px 3.8px;
+          border-radius: 4px;
+        }
+
+        &:hover {
+          box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.1);
+          border: solid 1px #000;
+          // padding: 5px 5px 34px 4px;
+          padding-bottom: 36px;
+
+          // .products-info {
+          //     padding-top: 21px;
+          //     padding-left: 28px;
+
+          //     // margin-left: 0.1rem;
+          //     @include media-breakpoint-between(xs, sm) {
+          //         width: 9.2rem;
+          //         padding-top: 8px;
+          //         padding-left: 4.2px;
+          //         padding-right: 1px;
+          //         font-size: 0.875rem;
+          //     }
+
+          //     .info {
+          //         line-height: 1.56 !important;
+          //         padding-bottom: 0.5rem;
+
+          //         @include media-breakpoint-between(xs, sm) {
+          //             letter-spacing: -0.28px;
+          //             font-size: 14px;
+          //             padding-bottom: 0.6rem;
+          //             padding-right: 0;
+          //             line-height: 1.41 !important;
+          //         }
+          //     }
+          // }
+
+          @include media-breakpoint-between(xs, md) {
+            padding-bottom: 12px;
+          }
+        }
+      }
+
+      @include media-breakpoint-between(lg, xl) {
+        padding-bottom: 7.8rem;
+      }
+
+      @include media-breakpoint-between(sm, lg) {
+        padding-bottom: 5.8rem;
+      }
+
+      // .card-active {
+      //     box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.1);
+      //     border: solid 1px #000;
+      //     // padding: 5px 5px 34px 4px;
+      //     padding-bottom: 36px;
+
+      //     .products-info {
+      //         padding-top: 21px;
+      //         padding-left: 28px;
+
+      //         // margin-left: 0.1rem;
+      //         @include media-breakpoint-between(xs, sm) {
+      //             width: 9.2rem;
+      //             padding-top: 8px;
+      //             padding-left: 4.2px;
+      //             padding-right: 1px;
+      //             font-size: 0.875rem;
+      //         }
+
+      //         .info {
+      //             line-height: 1.56 !important;
+      //             padding-bottom: 0.5rem;
+
+      //             @include media-breakpoint-between(xs, sm) {
+      //                 letter-spacing: -0.28px;
+      //                 font-size: 14px;
+      //                 padding-bottom: 0.6rem;
+      //                 padding-right: 0;
+      //                 line-height: 1.41 !important;
+      //             }
+      //         }
+      //     }
+
+      //     @include media-breakpoint-between(xs, sm) {
+      //         padding-bottom: 12px;
+      //     }
+      // }
+
+      @include media-breakpoint-between(xs, md) {
+        padding-top: 0.85rem;
+        padding-bottom: 3.4rem;
+        width: 100%;
+        gap: 12px;
+        margin-left: 0rem;
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        overflow-y: hidden;
+      }
+    }
+
+    @include media-breakpoint-between(xs, md) {
+      // padding-left: 12px;
+      // padding-right: 12px;
+    }
+  }
+
+  @media (max-width: 1440px) {
+    padding-left: 12px !important;
+    padding-right: 12px !important;
+  }
+
+  @include media-breakpoint-between(xs, md) {
+    background-color: #ffffff;
+  }
+}
+
+.container-footer {
+  border-radius: 5px;
+  background-color: #f5f7fb;
+
+  .keyin-interview {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding-left: 2.5rem;
+    // padding-right: 2.5rem;
+    padding-right: 2.7rem;
+    // padding-top: 10.1rem;
+    padding-top: 10.2rem;
+
+    .status {
+      font-family: 'Noto Sans KR';
+      font-size: 2rem;
+      font-weight: 500;
+      font-stretch: normal;
+      font-style: normal;
+      line-height: normal;
+      letter-spacing: normal;
+      text-align: left;
+      color: #000000;
+      display: flex;
+      align-items: center;
+
+      img {
+        padding-left: 0.4rem;
+
+        @include media-breakpoint-between(xs, md) {
+          height: 29px;
+          // padding-left: 0.3rem;
+          // padding-left: 0.4rem;
+          padding-left: 0.315rem;
+          padding-top: 0.18rem;
+        }
+      }
+
+      span {
+        span {
+          font-weight: normal;
+        }
+
+        @include media-breakpoint-between(lg, xl) {
+          font-size: 1.75rem;
+        }
+
+        @include media-breakpoint-between(xs, md) {
+          letter-spacing: -0.025rem;
+          font-size: 22px;
+        }
+      }
+
+      @include media-breakpoint-between(md, lg) {
+        font-size: 1.25rem;
+      }
+
+      @include media-breakpoint-between(lg, xl) {
+        font-size: 1.75rem;
+      }
+    }
+
+    .view {
+      font-family: 'Noto Sans KR';
+      font-size: 1.125rem;
+      font-weight: normal;
+      font-stretch: normal;
+      font-style: normal;
+      line-height: normal;
+      letter-spacing: normal;
+      text-align: left;
+      color: #000000;
+      display: flex;
+      align-items: center;
+      cursor: pointer;
+      border: 0;
+      background: none;
+
+      img {
+        // padding-left: 0.25rem;
+        padding-left: 0.35rem;
+        // padding-top: 0.2rem;
+        padding-top: 2px;
+        width: 24px;
+        margin-left: 1px;
+
+        @include media-breakpoint-between(md, lg) {
+          height: 18px;
+        }
+
+        @include media-breakpoint-between(xs, md) {
+          // height: 25px;
+          // height: 23px;
+          height: 19px;
+          width: auto;
+          padding-left: 0.2rem;
+          // padding-top: 0.15rem;
+          padding-top: 0.1rem;
+        }
+      }
+
+      @include media-breakpoint-between(md, lg) {
+        font-size: 0.9rem;
+      }
+
+      @include media-breakpoint-between(xs, md) {
+        font-size: 1rem;
+        // padding-top: 0.2rem;
+        padding-top: 0.1rem;
+      }
+    }
+
+    @include media-breakpoint-between(lg, xl) {
+      padding-top: 8.2rem;
+    }
+
+    @include media-breakpoint-between(md, lg) {
+      padding-top: 6.2rem;
+    }
+
+    @include media-breakpoint-between(xs, md) {
+      font-size: 22px;
+      // padding-left: 23.5px;
+      padding-left: 12px;
+      margin-top: 4.5rem;
+      // padding-right: 17px;
+      // padding-right: 20px;
+      padding-right: 8px;
+      // padding-top: 4.05rem;
+      // padding-top: 4rem;
+      padding-top: 4.1rem;
+      margin: 0;
+    }
+  }
+
+  .keyin-interview-list {
+    display: flex;
+    justify-content: space-between;
+    // padding-top: 32px;
+    padding-top: 33px;
+
+    &::-webkit-scrollbar {
+      @include media-breakpoint-between(xs, md) {
+        display: none;
+      }
+    }
+
+    .card {
+      display: flex;
+      flex-direction: column;
+      border-radius: 10px;
+
+      img {
+        border-radius: 10px;
+        width: 473px;
+        height: 270px;
+
+        @include media-breakpoint-between(xl, xxl) {
+          width: 100%;
+          height: auto;
+        }
+
+        @include media-breakpoint-between(lg, xl) {
+          height: auto;
+          width: 100%;
+        }
+
+        @include media-breakpoint-between(md, lg) {
+          height: auto;
+          width: 100%;
+        }
+
+        @include media-breakpoint-between(sm-400, md) {
+          height: auto;
+          // width: 184px;
+          width: 100%;
+        }
+
+        @include media-breakpoint-between(xs, sm-400) {
+          // height: 121px;
+          // width: 162px;
+          width: 100%;
+          height: auto;
+          border-radius: 4px;
+        }
+      }
+
+      .products-info {
+        padding-left: 3px;
+        padding-top: 16px;
+
+        .frame {
+          width: 124px;
+          height: 32px;
+          display: flex;
+          flex-direction: row;
+          justify-content: center;
+          align-items: center;
+          gap: 10px;
+          padding: 10px 16px;
+          border-radius: 50px;
+          background-color: #333333;
+          color: #ffffff;
+          margin-left: 0.1rem;
+          flex-wrap: nowrap;
+
+          span {
+            @include media-breakpoint-between(xs, md) {
+              font-size: 12px;
+            }
+          }
+
+          @include media-breakpoint-between(lg, xl) {
+            font-size: 0.75rem;
+          }
+
+          @include media-breakpoint-between(md, lg) {
+            font-size: 0.5rem;
+            width: 80px;
+            height: 25px;
+          }
+
+          @include media-breakpoint-between(xs, md) {
+            width: 93px;
+            height: 25px;
+            font-size: 0.75rem;
+            padding: 8px 12px;
+          }
+        }
+
+        .desc {
+          font-family: 'Noto Sans KR';
+          font-size: 1.25rem;
+          font-weight: 500;
+          font-stretch: normal;
+          font-style: normal;
+          line-height: normal;
+          letter-spacing: -0.4px;
+          text-align: left;
+          color: #333333;
+          width: 399px;
+          padding-top: 11.9px;
+          // padding-bottom: 21px;
+          margin-bottom: 21px;
+          padding-left: 2px;
+          display: -webkit-box;
+          -webkit-box-orient: vertical;
+          -webkit-line-clamp: 2;
+          overflow: hidden;
+
+          span {
+            line-height: normal !important;
+
+            @include media-breakpoint-between(xs, md) {
+              // width: 130px;
+              font-size: 14px;
+              letter-spacing: -0.015rem;
+              line-height: 1.4 !important;
+            }
+
+            @include media-breakpoint-between(xs, sm-400) {
+              max-width: 130px;
+            }
+          }
+
+          @include media-breakpoint-between(lg, xl) {
+            // width: 250px;
+            width: 100%;
+            font-size: 1rem;
+          }
+
+          @include media-breakpoint-between(md, lg) {
+            width: 100%;
+            font-size: 0.75rem;
+          }
+
+          // @include media-breakpoint-between(sm-400, md) {
+          //     width: 100%;
+          // }
+
+          @include media-breakpoint-between(xs, md) {
+            padding-top: 11.2px;
+            // padding-bottom: 7.5px;
+            margin-bottom: 7.5px;
+            font-size: 14px;
+            // display: flex;
+            // width: 160px;
+            width: 100%;
+            padding-left: 0px;
+          }
+        }
+
+        .date {
+          font-family: 'Noto Sans KR';
+          font-size: 1.125rem;
+          font-weight: normal;
+          font-stretch: normal;
+          font-style: normal;
+          line-height: normal;
+          letter-spacing: normal;
+          text-align: left;
+          color: rgba(0, 0, 0, 0.5);
+          padding-left: 2px;
+
+          @include media-breakpoint-between(lg, xl) {
+            font-size: 1rem;
+          }
+
+          @include media-breakpoint-between(md, lg) {
+            font-size: 0.75rem;
+          }
+
+          @include media-breakpoint-between(xs, md) {
+            font-size: 12px;
+            font-weight: 500;
+            margin-left: 0.05rem;
+            padding-left: 0px;
+          }
+        }
+
+        @include media-breakpoint-between(xs, md) {
+          padding-left: 8.2px;
+          // padding-top: 9px;
+          padding-top: 10px;
+        }
+      }
+
+      @include media-breakpoint-between(xl, xxl) {
+        // width: calc(98% / 3);
+        width: 100%;
+      }
+
+      @include media-breakpoint-between(lg, xl) {
+        // width: calc(98% / 3);
+        width: 100%;
+      }
+
+      @include media-breakpoint-between(md, lg) {
+        // width: calc(98% / 3);
+        width: 100%;
+      }
+
+      @include media-breakpoint-between(xs, md) {
+        flex: 0 0 auto;
+      }
+    }
+
+    @include media-breakpoint-between(xs, md) {
+      width: 100%;
+      // gap: 5.1px;
+      // padding-left: 12.7px;
+      padding-left: 0.7px;
+      padding-top: 15px;
+      // height: 288px;
+      flex-wrap: nowrap;
+      display: inline-flex;
+      overflow-x: auto;
+      overflow-y: hidden;
+    }
+  }
+
+  .keyin-story {
+    border-radius: 10px;
+    background-color: #fff;
+    display: flex;
+    // margin-top: 123px;
+    margin-top: 125px;
+
+    .left {
+      font-family: 'Noto Sans KR';
+      font-size: 2rem;
+      font-weight: 500;
+      font-stretch: normal;
+      font-style: normal;
+      line-height: normal;
+      letter-spacing: normal;
+      text-align: left;
+      color: #333333;
+      padding-left: 7.09rem;
+      // padding-top: 8.8rem;
+      padding-top: 8.7rem;
+      padding-bottom: 9.85rem;
+      // padding-right: 7.29rem;
+      padding-right: 7.4rem;
+      display: flex;
+      align-items: center;
+
+      span {
+        line-height: normal !important;
+      }
+
+      img {
+        margin-left: 0.5rem;
+        margin-top: 0.4rem;
+        width: 32px;
+        height: 32px;
+      }
+
+      @include media-breakpoint-between(lg, xl) {
+        font-size: 1.75rem;
+        // width: 50%;
+        width: 40%;
+        // padding-left: 3.063rem;
+        // padding-right: 3.625rem;
+        padding-left: 0;
+        padding-right: 0;
+        justify-content: center;
+      }
+
+      @include media-breakpoint-between(md, lg) {
+        font-size: 1.75rem;
+        width: 40%;
+        // padding-left: 1.063rem;
+        // padding-right: 1.625rem;
+        padding-left: 0;
+        padding-right: 0;
+        justify-content: center;
+      }
+
+      @include media-breakpoint-between(xs, md) {
+        font-size: 1.25rem;
+        width: 50%;
+        padding-left: 0;
+        padding-right: 0;
+        justify-content: center;
+      }
+    }
+
+    .right {
+      padding-right: 43px;
+      // padding-top: 40px;
+      padding-top: 43px;
+      flex-grow: 1;
+
+      .action {
+        display: flex;
+        justify-content: flex-end;
+        width: 100%;
+
+        .view {
+          font-family: 'Noto Sans KR';
+          font-size: 1.125rem;
+          font-weight: normal;
+          font-stretch: normal;
+          font-style: normal;
+          line-height: normal;
+          letter-spacing: normal;
+          text-align: left;
+          color: #000000;
+          display: flex;
+          align-items: center;
+          cursor: pointer;
+          border: 0;
+          background: none;
+          padding: 0;
+          margin-top: -0.01rem;
+
+          img {
+            padding-left: 0.3rem;
+            // margin-top: 0.3rem;
+            // margin-right: -0.08rem;
+            width: 24px;
+            margin-left: 1px;
+            margin-right: 1px;
+
+            @include media-breakpoint-between(md, lg) {
+              height: 18px;
+            }
+
+            @include media-breakpoint-between(xs, md) {
+              height: 18px;
+              width: auto;
+            }
+          }
+
+          @include media-breakpoint-between(sm, lg) {
+            font-size: 0.9rem;
+          }
+        }
+      }
+
+      .list {
+        // padding-top: 36px;
+        padding-top: 39px;
+
+        .keyin-li {
+          // padding-left: 6.5px;
+          padding-left: 4.5px;
+          display: flex;
+
+          .frame {
+            width: 14.5%;
+            justify-content: flex-start;
+            display: flex;
+            align-items: center;
+            flex: 0 0 auto;
+
+            div {
+              padding: 10px 16px;
+              border-radius: 50px;
+              background-color: #333;
+              color: #ffffff;
+              width: fit-content;
+              max-width: 91px;
+              height: 32px;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+
+              @include media-breakpoint-between(sm, lg) {
+                padding: 5px 10px;
+                height: 25px;
+                white-space: nowrap;
+              }
+
+              @include media-breakpoint-between(lg, xl) {
+                white-space: nowrap;
+              }
+            }
+
+            @include media-breakpoint-between(lg, xl) {
+              font-size: 0.75rem;
+              flex: 0 0 auto;
+              width: 18%;
+              // width: 75px;
+              justify-content: flex-start;
+              display: flex;
+              align-items: center;
+            }
+
+            @include media-breakpoint-between(sm, lg) {
+              font-size: 0.75rem;
+              flex: 0 0 auto;
+              width: 18%;
+              // width: 65px;
+              justify-content: flex-start;
+              display: flex;
+              align-items: center;
+            }
+          }
+
+          .text {
+            font-family: 'Noto Sans KR';
+            font-size: 1.125rem;
+            font-weight: normal;
+            font-stretch: normal;
+            font-style: normal;
+            line-height: 1.56 !important;
+            letter-spacing: normal;
+            text-align: left;
+            color: #000000;
+            // padding-left: 40px;
+            padding-top: 0.05rem;
+            flex-grow: 1;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            flex: 0 0 auto;
+            width: 71%;
+
+            @include media-breakpoint-between(lg, xl) {
+              padding-left: 10px;
+              font-size: 1rem;
+              flex: 0 0 auto;
+              width: 71%;
+            }
+
+            @include media-breakpoint-between(sm, lg) {
+              padding-left: 5px;
+              font-size: 1rem;
+              flex: 0 0 auto;
+              width: 71%;
+            }
+          }
+
+          .action {
+            button {
+              color: #fc5000;
+              background: none;
+              border: 0;
+              cursor: pointer;
+              padding: 0px;
+              // margin-top: -0.45rem;
+
+              .vector-15 {
+                width: 1.8px;
+                height: 20px;
+                flex-grow: 0;
+                margin: 0 9.5px;
+                background-color: #fc5000;
+              }
+
+              .vector-16 {
+                // width: 20px;
+                // height: 1.8px;
+                // flex-grow: 0;
+                // margin-top: -11px;
+                // transform: rotate(-180deg);
+                // background-color: #fc5000;
+                width: 1.8px;
+                height: 20px;
+                flex-grow: 0;
+                margin: -19.5px 9.4px 0px;
+                transform: rotate(-90deg);
+                background-color: #fc5000;
+              }
+
+              @include media-breakpoint-between(sm, lg) {
+                width: max-content;
+                cursor: pointer;
+              }
+            }
+
+            .view {
+              img {
+                @include media-breakpoint-between(sm, lg) {
+                  height: 18px;
+                }
+              }
+
+              @include media-breakpoint-between(sm, lg) {
+                font-size: 0.9rem;
+              }
+            }
+          }
+        }
+
+        hr {
+          width: 100%;
+          height: 1px;
+          flex-grow: 0;
+          background-color: #d9d9d9;
+          border-right-width: 0;
+          -webkit-flex-shrink: 0;
+          -ms-flex-negative: 0;
+          flex-shrink: 0;
+          border-width: 0;
+          margin: 19.5px 0 19.5px 0;
+        }
+
+        .active {
+          div {
+            background-color: #fc5000 !important;
+          }
+        }
+      }
+
+      @include media-breakpoint-between(lg, xl) {
+        width: 60%;
+      }
+
+      @include media-breakpoint-between(md, lg) {
+        width: 60%;
+      }
+    }
+
+    @include media-breakpoint-between(lg, xl) {
+      margin-top: 105px;
+    }
+
+    @include media-breakpoint-between(md, lg) {
+      margin-top: 85px;
+    }
+
+    @include media-breakpoint-between(xs, md) {
+      display: none;
+    }
+  }
+
+  .keyin-story-mobile {
+    border-radius: 0;
+    background-color: #fff;
+    display: none;
+    // margin-top: 0px;
+    margin-top: 48.5px;
+    flex-direction: column;
+    padding-bottom: 3.15rem;
+
+    .top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+      padding-left: 1.5rem;
+      margin-top: 2.95rem;
+      // padding-right: 16px;
+      padding-right: 20px;
+      padding-top: 0px;
+
+      .status {
+        font-family: 'Noto Sans KR';
+        font-size: 22px;
+        font-weight: 500;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: normal;
+        letter-spacing: normal;
+        text-align: left;
+        color: #000000;
+        display: flex;
+        align-items: center;
+        letter-spacing: -0.44px;
+
+        img {
+          padding-left: 0.3rem;
+          height: 27px;
+          margin-top: 0.2rem;
+        }
+
+        span {
+          span {
+            font-weight: normal;
+          }
+        }
+      }
+
+      .view {
+        font-family: 'Noto Sans KR';
+        font-size: 1rem;
+        font-weight: normal;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: normal;
+        letter-spacing: normal;
+        text-align: left;
+        color: #000000;
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+        border: 0;
+        background: none;
+        margin-top: 0.2rem;
+
+        img {
+          padding-left: 0.1rem;
+          width: 20px;
+          margin-left: 2px;
+        }
+      }
+
+      @include media-breakpoint-between(xs, md) {
+        margin-top: 3.12rem;
+      }
+    }
+
+    .right {
+      padding-top: 0px;
+      flex-grow: 1;
+      width: 100%;
+      padding-left: 1.5rem;
+      padding-right: 1.5rem;
+
+      .action {
+        display: flex;
+        justify-content: flex-end;
+        padding-top: 0rem;
+
+        .view {
+          font-family: 'Noto Sans KR';
+          font-size: 1.125rem;
+          font-weight: normal;
+          font-stretch: normal;
+          font-style: normal;
+          line-height: normal;
+          letter-spacing: normal;
+          text-align: left;
+          color: #000000;
+          display: flex;
+          align-items: center;
+          cursor: pointer;
+          border: 0;
+          background: none;
+
+          img {
+            padding-left: 0.25rem;
+          }
+        }
+      }
+
+      .list {
+        padding-top: 31.9px;
+
+        .keyin-li {
+          padding-left: 0;
+          display: flex;
+          flex-direction: column;
+
+          &:nth-child(3) {
+            padding-left: 0.05rem;
+          }
+
+          div {
+            display: flex;
+
+            .frame {
+              width: 91px;
+              flex-grow: 1;
+              font-size: 12px;
+
+              div {
+                padding: 10px 12.2px;
+                border-radius: 50px;
+                background-color: #333;
+                color: #ffffff;
+                width: fit-content;
+                max-width: 91px;
+                height: 25px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+              }
+            }
+
+            .action {
+              margin-top: -0.35rem;
+
+              button {
+                color: #fc5000;
+                background: none;
+                border: 0;
+                cursor: pointer;
+                padding-left: 0;
+                padding-right: 0;
+
+                .vector-15 {
+                  width: 2px;
+                  height: 16px;
+                  flex-grow: 0;
+                  margin: 0 6.5px;
+                  background-color: #fc5000;
+                }
+
+                .vector-16 {
+                  width: 16px;
+                  height: 2px;
+                  flex-grow: 0;
+                  // margin-top: -8.5px;
+                  margin-top: -9.5px;
+                  transform: rotate(-180deg);
+                  background-color: #fc5000;
+                }
+              }
+            }
+          }
+
+          .text {
+            font-family: 'Noto Sans KR';
+            font-size: 0.875rem;
+            font-weight: normal;
+            font-stretch: normal;
+            font-style: normal;
+            line-height: 1.47 !important;
+            letter-spacing: normal;
+            text-align: left;
+            color: #000000;
+            margin-top: 16px;
+            letter-spacing: -0.28px;
+            margin-left: -0.05rem;
+            width: 296px;
+
+            span {
+              @include media-breakpoint-between(xs, md) {
+                line-height: 1.4 !important;
+              }
+            }
+
+            @include media-breakpoint-between(xs, md) {
+              margin-top: 17.1px;
+            }
+          }
+        }
+
+        hr {
+          width: 100%;
+          height: 1px;
+          flex-grow: 0;
+          background-color: #d9d9d9;
+          border-right-width: 0;
+          -webkit-flex-shrink: 0;
+          -ms-flex-negative: 0;
+          flex-shrink: 0;
+          border-width: 0;
+          margin: 18px 0 21px 0;
+
+          @include media-breakpoint-between(xs, md) {
+            // margin: 19.6px 0 20.2px 0;
+            margin: 19px 0 20.8px 0;
+          }
+
+          &:nth-child(4) {
+            margin: 19.5px 0 20px 0;
+          }
+        }
+
+        .active {
+          div {
+            background-color: #fc5000 !important;
+          }
+        }
+
+        @include media-breakpoint-between(xs, md) {
+          padding-top: 31.9px;
+        }
+      }
+    }
+
+    @include media-breakpoint-between(xs, md) {
+      display: flex;
+      margin-left: -12px;
+      margin-right: -12px;
+    }
+  }
+
+  .keyin-about {
+    // padding-top: 114px;
+    padding-top: 113px;
+    padding-bottom: 113px;
+    display: flex;
+
+    .keyin-contact {
+      // padding: 64px 320.4px 14px 321px;
+      padding: 65px 320.4px 14px 321px;
+      border-radius: 10px;
+      border: solid 1px rgba(0, 0, 0, 0.2);
+      background-color: #333;
+      width: 941px;
+      height: 218px;
+      font-family: 'Noto Sans KR';
+      font-size: 2rem;
+      font-weight: bold;
+      font-stretch: normal;
+      font-style: normal;
+      line-height: normal;
+      letter-spacing: normal;
+      text-align: center;
+      color: #fff;
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      .info {
+        padding-top: 18px;
+        display: flex;
+        align-items: center;
+        margin-left: -0.1rem;
+
+        button {
+          display: flex;
+          align-items: center;
+
+          a {
+            display: flex;
+            align-items: center;
+          }
+        }
+
+        span:nth-child(1) {
+          font-family: 'Noto Sans KR';
+          font-size: 1rem;
+          font-weight: normal;
+          font-stretch: normal;
+          font-style: normal;
+          line-height: normal !important;
+          letter-spacing: normal;
+          text-align: right;
+          color: #fff;
+
+          @include media-breakpoint-between(lg, xl) {
+            font-size: 1rem;
+          }
+
+          @include media-breakpoint-between(sm, lg) {
+            font-size: 0.75rem;
+          }
+        }
+
+        span:nth-child(2) {
+          font-family: 'Noto Sans KR';
+          font-size: 1.125rem;
+          font-weight: normal;
+          font-stretch: normal;
+          font-style: normal;
+          line-height: normal !important;
+          letter-spacing: normal;
+          text-align: left;
+          color: #fff;
+          padding-left: 10.9px;
+
+          @include media-breakpoint-between(lg, xl) {
+            font-size: 1rem;
+          }
+
+          @include media-breakpoint-between(sm, lg) {
+            font-size: 0.75rem;
+          }
+        }
+
+        hr {
+          width: 0.063rem;
+          height: 0.938rem;
+          // margin: 0 18.2px 0 20.2px;
+          margin: 1px 17px 0 22px;
+          flex-grow: 0;
+          background-color: rgba(255, 255, 255, 0.5);
+          border-right-width: 0;
+          -webkit-flex-shrink: 0;
+          -ms-flex-negative: 0;
+          flex-shrink: 0;
+          border-width: 0;
+
+          @include media-breakpoint-between(sm, lg) {
+            margin: 0 5% 0 5%;
+          }
+        }
+
+        .right {
+          font-family: 'Noto Sans KR';
+          font-size: 1rem;
+          font-weight: normal;
+          font-stretch: normal;
+          font-style: normal;
+          line-height: normal !important;
+          letter-spacing: normal;
+          text-align: right;
+          color: #ffffff;
+          margin-top: -0.1rem;
+          padding-left: 0.1rem;
+
+          @include media-breakpoint-between(lg, xl) {
+            font-size: 0.9rem;
+          }
+
+          @include media-breakpoint-between(sm, lg) {
+            font-size: 0.5rem;
+          }
+        }
+
+        .arrow-right {
+          width: 30px;
+          height: 30px;
+          padding: 5px 5.3px 5px 5px;
+          border-radius: 60px;
+          border: solid 1px #fff;
+          display: flex;
+          margin-left: 12.4px;
+          margin-top: -0.04rem;
+
+          @include media-breakpoint-between(sm, lg) {
+            width: 25.3px;
+            height: 25px;
+          }
+        }
+
+        @include media-breakpoint-between(sm, lg) {
+          width: 100%;
+          text-align: center;
+          justify-content: center;
+          padding-top: 15px;
+        }
+      }
+
+      @media (max-width: 1460px) {
+        width: 60%;
+        padding: 65px 10% 14px 10%;
+      }
+
+      @include media-breakpoint-between(xl, xxl) {
+        width: 60%;
+        padding: 65px 10% 14px 10%;
+      }
+
+      @include media-breakpoint-between(lg, xl) {
+        width: 55%;
+        padding: 65px 10% 14px 10%;
+        font-size: 1.75rem;
+      }
+
+      @include media-breakpoint-between(md, lg) {
+        width: 55%;
+        padding: 45px 5% 14px 5%;
+        font-size: 1.25rem;
+        height: 150px;
+      }
+
+      @include media-breakpoint-between(xs, md) {
+        display: none;
+      }
+    }
+
+    .keyin-contact-mobile {
+      // padding: 44px 320.4px 14px 321px;
+      padding-top: 45px;
+      border-radius: 10px;
+      border: 0;
+      background: none;
+      width: 100%;
+      height: 218px;
+      font-family: 'Noto Sans KR';
+      font-size: 1.375rem;
+      font-weight: bold;
+      font-stretch: normal;
+      font-style: normal;
+      line-height: normal;
+      letter-spacing: normal;
+      text-align: center;
+      color: #333333;
+      cursor: pointer;
+      display: none;
+      flex-direction: column;
+      align-items: center;
+
+      span {
+        letter-spacing: -0.44px;
+        margin-left: -0.1rem;
+      }
+
+      .info {
+        // margin-top: 14px;
+        margin-top: 16px;
+        padding: 15.5px 20px 15px 32px;
+        display: flex;
+        align-items: center;
+        border-radius: 60px;
+        border: solid 1px #333;
+        background-color: #333;
+        width: 100%;
+        align-items: center;
+        justify-content: space-between;
+        height: 56px;
+
+        .right {
+          font-family: 'Noto Sans KR';
+          font-size: 1rem;
+          font-weight: normal;
+          font-stretch: normal;
+          font-style: normal;
+          line-height: normal;
+          letter-spacing: normal;
+          text-align: right;
+          color: #ffffff;
+          margin-top: -0.1rem;
+        }
+
+        .arrow-right {
+          width: 26px;
+          height: 26px;
+          border-radius: 100px;
+          border: solid 1px #fff;
+          display: flex;
+          padding-top: 4px;
+          padding-bottom: 3.6px;
+
+          img {
+            width: 24px;
+            height: auto;
+          }
+        }
+      }
+
+      .contact {
+        // margin-top: 13px;
+        margin-top: 12px;
+        padding: 14px 25px 15px 32px;
+        display: flex;
+        align-items: center;
+        border-radius: 60px;
+        border: solid 1px #333;
+        background-color: #333;
+        width: 100%;
+        justify-content: space-between;
+        height: 56px;
+
+        a {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          width: 100%;
+
+          .right {
+            font-family: 'Noto Sans KR';
+            font-size: 1rem;
+            font-weight: normal;
+            font-stretch: normal;
+            font-style: normal;
+            line-height: normal;
+            letter-spacing: normal;
+            text-align: right;
+            color: #ffffff;
+            // margin-top: -0.2rem;
+          }
+
+          .number {
+            font-size: 1.375rem;
+            color: #ffffff;
+            font-weight: bold;
+            font-stretch: normal;
+            font-style: normal;
+            line-height: normal;
+            letter-spacing: normal;
+            text-align: right;
+            font-family: 'Noto Sans KR';
+
+            span {
+              letter-spacing: 0px;
+            }
+          }
+        }
+      }
+
+      @include media-breakpoint-between(xs, md) {
+        display: flex;
+      }
+    }
+
+    .about {
+      padding: 65px 132.6px 14px 131px;
+      border-radius: 10px;
+      background-color: #fc5000;
+      height: 218px;
+      display: flex;
+      flex-grow: 1;
+      border: 0;
+      font-family: 'Noto Sans KR';
+      font-size: 2rem;
+      font-weight: bold;
+      font-stretch: normal;
+      font-style: normal;
+      line-height: normal;
+      letter-spacing: normal;
+      text-align: center;
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      cursor: pointer;
+      margin-left: 10px;
+
+      .info {
+        padding-top: 18px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        span {
+          font-family: 'Noto Sans KR';
+          font-size: 1rem;
+          font-weight: normal;
+          font-stretch: normal;
+          font-style: normal;
+          line-height: normal;
+          letter-spacing: normal;
+          text-align: right;
+          color: #fff;
+          padding-right: 15px;
+
+          @include media-breakpoint-between(lg, xl) {
+            font-size: 0.9rem;
+          }
+
+          @include media-breakpoint-between(md, lg) {
+            font-size: 0.75rem;
+          }
+
+          @include media-breakpoint-between(xs, md) {
+            font-size: 0.875rem;
+            padding-right: 10px;
+          }
+        }
+
+        .download {
+          width: 30.3px;
+          height: 30px;
+          padding: 6px 6.3px 6px 6px;
+          border-radius: 60px;
+          border: solid 1px #fff;
+          display: flex;
+
+          img {
+            @include media-breakpoint-between(xs, md) {
+              width: 22.6px;
+              height: 18.3px;
+            }
+          }
+
+          @include media-breakpoint-between(md, lg) {
+            width: 25.3px;
+            height: 25px;
+          }
+
+          @include media-breakpoint-between(xs, md) {
+            width: 25px;
+            height: 25px;
+            border-radius: 100px;
+            margin-left: 1px;
+            padding: 1px 0px 0px 1px;
+          }
+        }
+
+        @include media-breakpoint-between(md, lg) {
+          width: 100%;
+          text-align: center;
+          justify-content: center;
+          padding-top: 15px;
+        }
+
+        @include media-breakpoint-between(xs, md) {
+          margin: 11.1px 12px 7.4px 12px;
+          padding-top: 0px;
+        }
+      }
+
+      @include media-breakpoint-between(xl, xxl) {
+        padding: 65px 10% 14px 10%;
+      }
+
+      @include media-breakpoint-between(lg, xl) {
+        width: 45%;
+        padding: 65px 10% 14px 10%;
+        font-size: 1.75rem;
+      }
+
+      @include media-breakpoint-between(md, lg) {
+        width: 45%;
+        padding: 45px 5% 14px 5%;
+        font-size: 1.25rem;
+        height: 150px;
+      }
+
+      @include media-breakpoint-between(xs, md) {
+        width: 100%;
+        margin: 0;
+        height: 100px;
+        padding: 20px 66px 21px 66px;
+        font-size: 1.5rem;
+      }
+    }
+
+    @media (max-width: 1024px) {
+      padding-bottom: 80px;
+    }
+
+    @include media-breakpoint-between(lg, xl) {
+      padding-top: 93px;
+    }
+
+    @include media-breakpoint-between(md, lg) {
+      padding-top: 83px;
+    }
+
+    @include media-breakpoint-between(xs, md) {
+      padding-top: 54px;
+      padding-bottom: 80px;
+      display: flex;
+      flex-direction: column;
+      // padding-left: 12px;
+      // padding-right: 12px;
+    }
+  }
+
+  @media (max-width: 1919px) {
+    padding-right: 12px;
+    padding-left: 12px;
+  }
+}
+
+.m-share {
+  @include media-breakpoint-between(xs, md) {
+    width: 100%;
+    height: 100%;
+    box-shadow: 0 0 30px 0 #0000004d;
+    background-color: #f5f7fb;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    padding-top: 34px;
+    padding-bottom: 51px;
+  }
+
+  span {
+    @include media-breakpoint-between(xs, md) {
+      font-family: 'Noto Sans KR';
+      font-size: 1rem;
+      font-weight: 500;
+      font-stretch: normal;
+      font-style: normal;
+      line-height: normal;
+      letter-spacing: -0.32px;
+      text-align: center;
+      color: #000;
+    }
+  }
+
+  .action-share {
+    @include media-breakpoint-between(xs, md) {
+      display: flex;
+      padding-top: 30.5px;
+      width: 100%;
+      justify-content: flex-start;
+    }
+
+    div {
+      flex: 0 0 auto;
+      width: 50%;
+
+      button {
+        @include media-breakpoint-between(xs, md) {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          border: 0;
+          background: none;
+          cursor: pointer;
+          width: 100%;
+        }
+
+        img {
+          @include media-breakpoint-between(xs, md) {
+            width: 70px;
+            height: 69.9px;
+          }
+        }
+
+        span {
+          @include media-breakpoint-between(xs, md) {
+            font-family: 'Noto Sans KR';
+            font-size: 0.875rem;
+            font-weight: normal;
+            font-stretch: normal;
+            font-style: normal;
+            line-height: normal;
+            letter-spacing: normal;
+            text-align: center;
+            color: #000;
+            padding-top: 11.7px;
+          }
+        }
+      }
+
+      .kakaotalk {
+        padding-left: 40px;
+      }
+
+      .link {
+        padding-right: 40px;
+        padding-top: 4px;
+
+        span {
+          padding-top: 16.7px;
+        }
+
+        img {
+          @include media-breakpoint-between(xs, md) {
+            width: 69.6px;
+            height: 69.6px;
+          }
+        }
+
+        @include media-breakpoint-between(xs, md) {
+          margin-left: 0;
+        }
+      }
+    }
+  }
+}

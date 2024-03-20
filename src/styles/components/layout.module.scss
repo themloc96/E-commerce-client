@@ -1,0 +1,15 @@
+.headerBaseWrapper {
+  // & > div {
+  //   height: 85px;
+  // }
+  // @media (min-width: 768px) { 
+  //   & > div {
+  //     height: 85px;
+  //   }
+  // }
+  @media (min-width: 992px) { 
+    & > div {
+      height: 102.59px;
+    }
+  }
+}

@@ -1,0 +1,187 @@
+@import "../helpers/variables";
+@import "../base/typography";
+
+.customers {
+  margin-top: 60px;
+
+  &-header {
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 20px;
+    border-bottom: 1px solid $color-bgLine;
+
+    h2 {
+      @include f16Medium;
+      color: $color-textSecondary4;
+    }
+
+    .registration-btn {
+      margin-top: -2px;
+      min-width: 105px;
+      height: 30px;
+      padding: 0;
+      @include f14Regular;
+      border: solid 1px rgba(0, 0, 0, 0.5);
+    }
+  }
+
+  &-table-wrap {
+    font-size: 12px;
+    text-align: center;
+
+    table {
+      border-collapse: separate;
+      border-spacing: 0px 5px;
+    }
+
+    tr {
+    &:nth-of-type(1) {
+      th {
+        padding-top: 19px;
+        padding-bottom: 21px;
+
+        &:nth-of-type(1) {
+          padding-left: 20px;
+        }
+
+        &:nth-of-type(2) {
+          padding-left: 4px;
+        }
+
+        &:nth-of-type(4) {
+          padding-right: 9px;
+        }
+      }
+    }
+
+      &:not(:nth-of-type(1)) {
+        background-color: $color-bg1;
+
+        td:first-child,
+        th:first-child {
+          width: 11%;
+          padding-left: 12px;
+          padding: 16px 0 17px 19px;
+        }
+
+        td:nth-child(2),
+        th:nth-child(2) {
+          width: 23%;
+          padding-left: 3px;
+        }
+
+        td:nth-child(3),
+        th:nth-child(3) {
+          width: 31%;
+          padding-right: 2px;
+        }
+
+        td:nth-child(4),
+        th:nth-child(4) {
+          width: 38%;
+          padding-right: 7.5px;
+        }
+      }
+    }
+  }
+
+  @media screen and (min-width: 768px) {
+    padding: 54px 58px 53px;
+    margin-bottom: 60px;
+    border-radius: 20px;
+    background-color: #f5f7fb;
+
+    &-header {
+      padding-bottom: 19px;
+      margin-bottom: 20px;
+
+      h2 {
+        @include f32Medium;
+        color: $color-textSecondary4;
+      }
+
+      .registration-btn {
+        margin-top: 6px;
+        max-width: 150px;
+        width: 150px;
+        height: 40.4px;
+        font-size: 18px;
+      }
+    }
+
+    &-table-wrap {
+      font-size: 20px;
+      table {
+        border-spacing: 0px 10px;
+        width: 100%;
+      }
+
+      tr {
+        th {
+          font-weight: 500;
+        }
+
+        &:nth-of-type(1) {
+          th {
+            padding-top: 31px;
+            padding-bottom: 22px;
+            &:nth-of-type(1) {
+              padding-left: 40px;
+            }
+
+            &:nth-of-type(2) {
+              padding-left: 10px;
+            }
+            &:nth-of-type(3) {
+              padding-right: 45px;
+            }
+            &:nth-of-type(4) {
+              padding-left: 30px;
+            }
+            &:nth-of-type(5) {
+              padding-right: 7px;
+            }
+          }
+        }
+
+        &:not(:nth-of-type(1)) {
+          th {
+            font-weight: normal;
+          }
+
+          background-color: $color-bg1;
+
+          td:first-child,
+          th:first-child {
+            width: 18%;
+            padding: 27px 0 25px 36px;
+          }
+
+          td:nth-child(2),
+          th:nth-child(2) {
+            width: 10%;
+            padding-left: 8px;
+          }
+
+          td:nth-child(3),
+          th:nth-child(3) {
+            width: 20%;
+            padding-right: 45px;
+          }
+
+          td:nth-child(4),
+          th:nth-child(4) {
+            width: 25%;
+            padding-left: 24.5px;
+          }
+
+          td:nth-child(5),
+          th:nth-child(5) {
+            width: 25%;
+            padding-right: 10px;
+          }
+        }
+      }
+    }
+  }
+}

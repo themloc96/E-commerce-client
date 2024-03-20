@@ -1,0 +1,33 @@
+.wrapper {
+  position: relative;
+  background-color: #fff;
+  .content {
+    display: flex;
+    height: 64px;
+    align-items: center;
+    h3 {
+      margin: 0;
+      line-height: 2.22;
+      letter-spacing: -0.36px;
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+    button {
+      background-color: transparent;
+      border: none;
+      outline: none;
+      width: 24px;
+      height: 24px;
+    }
+  }
+  .line {
+    position: absolute;
+    height: 2px;
+    background-color: rgba(0,0,0,.2);
+    width: 100%;
+    left: 0;
+    right: 0;
+    bottom: 0;
+  }
+}
